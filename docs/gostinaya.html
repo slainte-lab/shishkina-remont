@@ -131,6 +131,15 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .sizes td.mx{font-family:var(--f-mono);font-size:13px;color:var(--accent)}
 .sizes td.why{color:var(--muted);font-size:13.5px}
 .tblwrap{overflow-x:auto}
+.chip{display:inline-block;font-family:var(--f-body);font-size:11px;font-weight:600;letter-spacing:.04em;padding:1px 8px;border-radius:999px;border:1px solid currentColor;margin-left:8px;vertical-align:2px;white-space:nowrap}
+.chip.tight{color:var(--terra)}
+.chip.check{color:var(--olive)}
+.sizes tr.tight td:first-child{box-shadow:inset 3px 0 0 var(--terra)}
+.sizes tr.check td:first-child{box-shadow:inset 3px 0 0 var(--olive)}
+.flagnote{display:block;margin-top:4px;font-size:13px}
+.flagnote.tight{color:var(--terra)}
+.flagnote.check{color:var(--olive)}
+.legend{display:flex;flex-direction:column;gap:6px;font-size:14px}
 @media (max-width:760px){
   .sizes,.sizes tbody,.sizes tr,.sizes td{display:block}
   .sizes thead{display:none}

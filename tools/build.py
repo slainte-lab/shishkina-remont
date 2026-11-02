@@ -96,6 +96,15 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .sizes td.mx{font-family:var(--f-mono);font-size:13px;color:var(--accent)}
 .sizes td.why{color:var(--muted);font-size:13.5px}
 .tblwrap{overflow-x:auto}
+.chip{display:inline-block;font-family:var(--f-body);font-size:11px;font-weight:600;letter-spacing:.04em;padding:1px 8px;border-radius:999px;border:1px solid currentColor;margin-left:8px;vertical-align:2px;white-space:nowrap}
+.chip.tight{color:var(--terra)}
+.chip.check{color:var(--olive)}
+.sizes tr.tight td:first-child{box-shadow:inset 3px 0 0 var(--terra)}
+.sizes tr.check td:first-child{box-shadow:inset 3px 0 0 var(--olive)}
+.flagnote{display:block;margin-top:4px;font-size:13px}
+.flagnote.tight{color:var(--terra)}
+.flagnote.check{color:var(--olive)}
+.legend{display:flex;flex-direction:column;gap:6px;font-size:14px}
 @media (max-width:760px){
   .sizes,.sizes tbody,.sizes tr,.sizes td{display:block}
   .sizes thead{display:none}
@@ -283,18 +292,26 @@ def shots_page():
     return page("Визуализации · Шишкина", "vizualizacii", body)
 
 
+FLAGS = {"tight": '<span class="chip tight">впритык</span>', "check": '<span class="chip check">проверить</span>'}
+
+
 def sizes_page():
     secs = ""
     for g in SIZES["groups"]:
         rows = "".join(
-            f'<tr><td>{html.escape(r["name"])}</td><td class="hv">{html.escape(r["have"])}</td>'
-            f'<td class="mx">{html.escape(r["max"])}</td><td class="why">{html.escape(r["why"])}</td></tr>'
+            f'<tr class="{r.get("flag", "")}"><td>{html.escape(r["name"])}{FLAGS.get(r.get("flag"), "")}</td>'
+            f'<td class="hv">{html.escape(r["have"])}</td><td class="mx">{html.escape(r["max"])}</td>'
+            f'<td class="why">{html.escape(r["why"])}'
+            + (f'<span class="flagnote {r["flag"]}">{html.escape(r["flagNote"])}</span>' if r.get("flag") else "")
+            + '</td></tr>'
             for r in g["rows"])
         secs += (f'<section><h2>{g["room"]} <small><a href="{g["id"]}.html" data-keep="{g["id"]}.html">страница комнаты</a></small></h2>'
                  f'<div class="tblwrap"><table class="sizes"><thead><tr><th>Что</th><th>Взято в подборе</th>'
                  f'<th>Максимум</th><th>Что ограничивает</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
     body = ('<header><div class="eyebrow">Шишкина · Финал 2</div><h1>Размеры и пределы</h1>'
-            f'<p class="lead">{html.escape(SIZES["note"])}</p></header>{secs}')
+            f'<p class="lead">{html.escape(SIZES["note"])}</p>'
+            '<div class="legend">' + "".join(f'<div>{FLAGS[l["flag"]]} {html.escape(l["text"])}</div>' for l in SIZES["legend"])
+            + f'</div></header>{secs}')
     return page("Размеры · Шишкина", "razmery", body)
 
 
