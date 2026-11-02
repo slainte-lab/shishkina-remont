@@ -110,6 +110,14 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .series ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px}
 .freeline{color:var(--muted);font-size:14px;margin:0}
 @media (max-width:760px){.series{grid-template-columns:1fr}}
+.dots{display:inline-flex;gap:3px;vertical-align:middle;margin-right:6px}
+.dots i{width:16px;height:16px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.pal{display:flex;flex-wrap:wrap;gap:10px}
+.pal div{display:flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:13.5px}
+.pal i{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:inline-block;flex:none}
+.pal small{color:var(--muted);font-size:12px}
+.sizes td.cl{font-size:13.5px;min-width:170px}
+.sizes td.cl.sw-note{color:var(--muted)}
 .legend{display:flex;flex-direction:column;gap:6px;font-size:14px}
 @media (max-width:760px){
   .sizes,.sizes tbody,.sizes tr,.sizes td{display:block}
@@ -119,6 +127,7 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
   .sizes td:first-child{white-space:normal;font-size:16px}
   .sizes td.mx::before{content:"Максимум: ";font-family:var(--f-body);color:var(--muted)}
   .sizes td.hv::before{content:"Взято: ";color:var(--muted)}
+  .sizes td.cl::before{content:"Цвет: ";color:var(--muted)}
 }
 .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pager a{text-decoration:none;color:var(--fg);padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
@@ -310,23 +319,44 @@ def series_block():
             f'<p class="freeline">{html.escape(sr["free"])}</p></section>')
 
 
+def dots(sw):
+    return '<span class="dots">' + "".join(f'<i style="background:{c}"></i>' for c in sw) + '</span>'
+
+
+def color_cell(r):
+    if "colorV" in r:
+        inner = "".join(f'<span data-only="{v}">{dots(c["sw"])}{html.escape(c["t"])}</span>' for v, c in r["colorV"].items())
+    elif "color" in r:
+        inner = f'{dots(r["color"]["sw"])}{html.escape(r["color"]["t"])}'
+    else:
+        inner = ""
+    return f'<td class="cl">{inner}</td>'
+
+
+def palette_block():
+    pl = SIZES["palette"]
+    chips = "".join(f'<div><i style="background:{c["h"]}"></i><span>{html.escape(c["n"])}<br><small>{html.escape(c["t"])}</small></span></div>'
+                    for c in pl["colors"])
+    return (f'<section><h2>Палитра <small>{html.escape(pl["note"])}</small></h2><div class="pal">{chips}</div></section>')
+
+
 def sizes_page():
     secs = ""
     for g in SIZES["groups"]:
         rows = "".join(
             f'<tr class="{r.get("flag", "")}"><td>{html.escape(r["name"])}{FLAGS.get(r.get("flag"), "")}</td>'
-            f'<td class="hv">{html.escape(r["have"])}</td><td class="mx">{html.escape(r["max"])}</td>'
+            f'<td class="hv">{html.escape(r["have"])}</td>{color_cell(r)}<td class="mx">{html.escape(r["max"])}</td>'
             f'<td class="why">{html.escape(r["why"])}'
             + (f'<span class="flagnote {r["flag"]}">{html.escape(r["flagNote"])}</span>' if r.get("flag") else "")
             + '</td></tr>'
             for r in g["rows"])
         secs += (f'<section><h2>{g["room"]} <small><a href="{g["id"]}.html" data-keep="{g["id"]}.html">страница комнаты</a></small></h2>'
-                 f'<div class="tblwrap"><table class="sizes"><thead><tr><th>Что</th><th>Взято в подборе</th>'
+                 f'<div class="tblwrap"><table class="sizes"><thead><tr><th>Что</th><th>Взято в подборе</th><th>Цвет</th>'
                  f'<th>Максимум</th><th>Что ограничивает</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
     body = ('<header><div class="eyebrow">Шишкина · Финал 2</div><h1>Размеры и пределы</h1>'
             f'<p class="lead">{html.escape(SIZES["note"])}</p>'
             '<div class="legend">' + "".join(f'<div>{FLAGS[l["flag"]]} {html.escape(l["text"])}</div>' for l in SIZES["legend"])
-            + f'</div></header>{secs}{series_block()}')
+            + f'</div></header>{palette_block()}{secs}{series_block()}')
     return page("Размеры · Шишкина", "razmery", body)
 
 
