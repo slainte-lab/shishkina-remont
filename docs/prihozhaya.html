@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru" data-v="belyj">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Прихожая · Шишкина</title>
+<script>
+(function(){var d=document.documentElement,v=null;
+try{v=new URLSearchParams(location.search).get('v')}catch(e){}
+if(v!=='belyj'&&v!=='shalfej'){try{v=localStorage.getItem('variant')}catch(e){}}
+if(v!=='belyj'&&v!=='shalfej')v='belyj';
+d.setAttribute('data-v',v);})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: shopping list by room; each item = product photo + required size + main pick + alternatives */
+:root{
+  --bg:#F5F6F3; --surface:#FFFFFF; --fg:#1F2321; --muted:#5C635E; --line:#DCE0DA;
+  --sage:#8E9C8F; --olive:#6F7559; --oak:#CDB99D; --linen:#E6E0D4; --terra:#B7765A; --graph:#2F3033;
+  --accent:#4E6150; --chip:#EEF1EC;
+  --f-display:"Onest",system-ui,sans-serif; --f-body:"Manrope",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#161917; --surface:#1F2421; --fg:#E7EBE6; --muted:#A3ABA4; --line:#323934;
+  --oak:#B9A486; --linen:#4A4740; --terra:#C08467; --graph:#D6D8D3; --olive:#8A916F;
+  --accent:#A9C0AA; --chip:#2A302C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161917; --surface:#1F2421; --fg:#E7EBE6; --muted:#A3ABA4; --line:#323934;
+  --oak:#B9A486; --linen:#4A4740; --terra:#C08467; --graph:#D6D8D3; --olive:#8A916F;
+  --accent:#A9C0AA; --chip:#2A302C; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 56px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+header{display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:var(--f-display);font-size:clamp(28px,5vw,42px);line-height:1.1;margin:0;text-wrap:balance;font-weight:700}
+.lead{color:var(--muted);max-width:70ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--chip);border-radius:999px;padding:4px 10px;font-size:13px}
+.sw{width:12px;height:12px;border-radius:50%;display:inline-block}
+.total{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;padding:14px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.total b{font-family:var(--f-display);font-size:26px;font-variant-numeric:tabular-nums}
+.total span{color:var(--muted);font-size:13.5px}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-family:var(--f-display);font-size:22px;margin:0;font-weight:600;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+h2 small{font-family:var(--f-body);font-size:13px;color:var(--muted);font-weight:500}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:180px minmax(0,1fr) minmax(0,1.1fr);gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
+.photo{display:block;width:180px;height:180px;border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.what{display:flex;flex-direction:column;gap:5px;min-width:0}
+.what h3{margin:0;font-family:var(--f-display);font-size:17px;font-weight:600}
+.size{font-family:var(--f-mono);font-size:13px;color:var(--accent)}
+.why{font-size:13.5px;color:var(--muted)}
+.links{display:flex;flex-direction:column;gap:8px;min-width:0}
+.links a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:baseline;text-decoration:none;color:var(--fg);padding:9px 11px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.links a.main{border-color:var(--accent)}
+.links a:hover{border-color:var(--accent)}
+.links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.shop{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.pname{font-size:14px;overflow-wrap:anywhere}
+.price{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.main .price{color:var(--fg)}
+.alt-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+@media (max-width:760px){
+  .item{grid-template-columns:120px minmax(0,1fr);gap:14px}
+  .photo{width:120px;height:120px}
+  .links{grid-column:1 / -1}
+  .links a{grid-template-columns:auto minmax(0,1fr)}
+  .price{grid-column:2}
+}
+
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{font:inherit;font-size:14px;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.seg button[aria-pressed="true"]{border-color:var(--accent);background:var(--chip);font-weight:600}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#app[data-sel="B"] [data-v="S"],#app[data-sel="S"] [data-v="B"]{display:none}
+.vb{font-family:var(--f-body);font-size:11px;font-weight:600;letter-spacing:.04em;padding:1px 8px;border-radius:999px;background:var(--chip);color:var(--muted);margin-left:8px;vertical-align:2px}
+.vb.s{background:var(--sage);color:#fff}
+.note{display:block;font-size:12px;color:var(--terra);margin-top:2px}
+.photo.noimg{display:flex;align-items:center;justify-content:center;background:var(--chip);color:var(--muted);font-size:12.5px;text-align:center}
+
+.topbar{position:sticky;top:0;z-index:5;margin:-32px calc(-1*max(16px,env(safe-area-inset-left,0px))) 0;padding:10px max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1080px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.vsw{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vsw .lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.vsw button{font:inherit;font-size:14px;display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.vsw button[aria-pressed="true"]{border-color:var(--accent);background:var(--chip);font-weight:600}
+.vsw button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sw{border:1px solid var(--line)}
+.nav{display:flex;flex-wrap:wrap;gap:6px}
+.nav a{font-size:13.5px;text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.nav a[aria-current="page"]{border-color:var(--accent);background:var(--chip);font-weight:600}
+.nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="belyj"]{display:none!important}
+.vcards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.vcard{font:inherit;text-align:left;color:var(--fg);display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:14px;border:2px solid var(--line);background:var(--surface);cursor:pointer}
+.vcard[aria-pressed="true"]{border-color:var(--accent);background:var(--chip)}
+.vcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.vcard .vt{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-size:22px;font-weight:700}
+.vcard .vt i{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.vcard .vd{color:var(--muted);font-size:14px}
+.vcard .vs{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:15px}
+@media (max-width:560px){.vcards{grid-template-columns:1fr}}
+.rooms{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.rooms a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:14px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.rooms a:hover .rn{color:var(--accent)}
+.rooms a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rn{font-family:var(--f-display);font-size:18px;font-weight:600}
+.rc{font-size:13px;color:var(--muted)}
+.rs{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.note{display:block;font-size:12px;color:var(--terra);margin-top:2px}
+.photo.noimg{display:flex;align-items:center;justify-content:center;background:var(--chip);color:var(--muted);font-size:12.5px;text-align:center}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pager a{text-decoration:none;color:var(--fg);padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.pager a:hover{border-color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in"><div class="vsw"><span class="lbl">Вариант</span><button type="button" data-pick="belyj" aria-pressed="false"><span class="sw" style="background:#F4F3EF"></span>Белый</button><button type="button" data-pick="shalfej" aria-pressed="false"><span class="sw" style="background:#8E9C8F"></span>Шалфей</button></div><nav class="nav" aria-label="Комнаты"><a href="index.html" data-keep="index.html">Общая</a><a href="prihozhaya.html" data-keep="prihozhaya.html" aria-current="page">Прихожая</a><a href="kuhnya.html" data-keep="kuhnya.html">Кухня</a><a href="stolovaya.html" data-keep="stolovaya.html">Столовая</a><a href="gostinaya.html" data-keep="gostinaya.html">Гостиная</a><a href="spalnya.html" data-keep="spalnya.html">Спальня</a><a href="rabochee-mesto.html" data-keep="rabochee-mesto.html">Рабочее место</a></nav></div></div>
+<div class="wrap" style="margin-top:28px"><header><div class="eyebrow">Шишкина · <span data-only="belyj">вариант «Белый»</span><span data-only="shalfej">вариант «Шалфей»</span> · Прихожая</div><h1>Прихожая</h1><div class="total"><span data-only="belyj"><b>11 004 ₽</b> <span>4 позиций</span></span><span data-only="shalfej"><b>11 004 ₽</b> <span>4 позиций</span></span><span>Цены Лемана ПРО Ижевск на 2026-11-01.</span></div></header><section><div class="list"><div class="item"><div class="photo"><img src="img/89428001.jpg" alt="" loading="lazy"></div><div class="what"><h3>Обувница-табакерка</h3><div class="size">60×24 см, дуб</div><div class="why">Узкая, не съедает проход 1150. Та же серия «Лион», что и тумба под ТВ.</div></div><div class="links"><a class="main" href="https://izhevsk.lemanapro.ru/product/shkaf-dlya-obuvi-lion-60x1039x24-sm-2-yashchika-ldsp-cvet-dub-komano-89428001/" target="_blank" rel="noopener"><span class="shop">Лемана</span><span class="pname">Шкаф для обуви Лион 60×103,9×24 см, дуб комано</span><span class="price">5 140 ₽</span></a></div></div>
+<div class="item"><div class="photo noimg"><span>фото<br>по ссылке</span></div><div class="what"><h3>Крючки над обувницей</h3><div class="size">планка 4–5 крючков, чёрный</div><div class="why">Вешаются на 160–170 см над обувницей.</div></div><div class="links"><a class="main" href="https://izhevsk.lemanapro.ru/search/?q=92153293" target="_blank" rel="noopener"><span class="shop">Лемана</span><span class="pname">Вешалка Domart на планке, 5 двойных крючков, чёрный/орех<span class="note">фото — по ссылке</span></span><span class="price">1 819 ₽</span></a><div class="alt-label">ещё / в комплект</div><a href="https://izhevsk.lemanapro.ru/search/?q=91839768" target="_blank" rel="noopener"><span class="shop">Лемана</span><span class="pname">Крючок Cappio, чёрный, 1 шт. (взять 4)</span><span class="price">547 ₽ × 4</span></a></div></div>
+<div class="item"><div class="photo"><img src="img/92932411.jpg" alt="" loading="lazy"></div><div class="what"><h3>Зеркало</h3><div class="size">40×150 см</div><div class="why">Верх на 185–190 см от пола, на правой стене.</div></div><div class="links"><a class="main" href="https://izhevsk.lemanapro.ru/product/dekorativnoe-zerkalo-at-home-decor-20216-40x150-sm-92932411/" target="_blank" rel="noopener"><span class="shop">Лемана</span><span class="pname">Зеркало At Home Decor 20216, 40×150 см<span class="note">рама тонкая светлая</span></span><span class="price">3 500 ₽</span></a></div></div>
+<div class="item"><div class="photo"><img src="img/82206269.jpg" alt="" loading="lazy"></div><div class="what"><h3>Коврик у двери</h3><div class="size">60×90 см, серый</div><div class="why">Грязезащитный.</div></div><div class="links"><a class="main" href="https://izhevsk.lemanapro.ru/product/kovrik-start-60x90-sm-polipropilen-cvet-seryy-82206269/" target="_blank" rel="noopener"><span class="shop">Лемана</span><span class="pname">Коврик Start 60×90 см, серый</span><span class="price">545 ₽</span></a></div></div>
+</div></section><div class="pager"><a href="index.html" data-keep="index.html">← Общая</a><a href="kuhnya.html" data-keep="kuhnya.html">Кухня →</a></div></div>
+<script>
+(function(){var d=document.documentElement;
+function apply(v,save){
+  d.setAttribute('data-v',v);
+  if(save){try{localStorage.setItem('variant',v)}catch(e){}}
+  document.querySelectorAll('[data-pick]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.pick===v))});
+  document.querySelectorAll('a[data-keep]').forEach(function(a){a.setAttribute('href',a.dataset.keep+'?v='+v)});
+  try{history.replaceState(null,'','?v='+v)}catch(e){}
+}
+document.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.pick,true)})});
+apply(d.getAttribute('data-v'),false);
+})();
+</script>
+</body>
+</html>
