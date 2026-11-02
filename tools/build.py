@@ -37,7 +37,7 @@ SHOTS = {
             ("shalfej-2-okno-tv.webp", "От окна на ТВ", "shalfej")],
     "sp1": [("spalnya-1-okno.webp", "Спальня: вид на окно и рабочее место", "all")],
     "sp2": [("spalnya-2-shkaf-dver.webp", "Спальня: шкаф-купе и дверь", "all")],
-    "pr": [("prihozhaya.png", "Прихожая от спальни к входной двери", "all")],
+    "pr": [("prihozhaya.webp", "Прихожая от спальни к входной двери", "all")],
 }
 # что показывать на странице комнаты
 ROOM_SHOTS = {
