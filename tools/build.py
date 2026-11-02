@@ -104,6 +104,12 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .flagnote{display:block;margin-top:4px;font-size:13px}
 .flagnote.tight{color:var(--terra)}
 .flagnote.check{color:var(--olive)}
+.series{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.series article{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.series h3{margin:0;font-family:var(--f-display);font-size:17px;font-weight:600}
+.series ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.freeline{color:var(--muted);font-size:14px;margin:0}
+@media (max-width:760px){.series{grid-template-columns:1fr}}
 .legend{display:flex;flex-direction:column;gap:6px;font-size:14px}
 @media (max-width:760px){
   .sizes,.sizes tbody,.sizes tr,.sizes td{display:block}
@@ -295,6 +301,15 @@ def shots_page():
 FLAGS = {"tight": '<span class="chip tight">впритык</span>', "check": '<span class="chip check">проверить</span>'}
 
 
+def series_block():
+    sr = SIZES["series"]
+    cards = "".join(
+        f'<article><h3>{html.escape(b["h"])}</h3><ul>{"".join(f"<li>{html.escape(t)}</li>" for t in b["t"])}</ul></article>'
+        for b in sr["blocks"])
+    return (f'<section id="series"><h2>{html.escape(sr["title"])}</h2><div class="series">{cards}</div>'
+            f'<p class="freeline">{html.escape(sr["free"])}</p></section>')
+
+
 def sizes_page():
     secs = ""
     for g in SIZES["groups"]:
@@ -311,7 +326,7 @@ def sizes_page():
     body = ('<header><div class="eyebrow">Шишкина · Финал 2</div><h1>Размеры и пределы</h1>'
             f'<p class="lead">{html.escape(SIZES["note"])}</p>'
             '<div class="legend">' + "".join(f'<div>{FLAGS[l["flag"]]} {html.escape(l["text"])}</div>' for l in SIZES["legend"])
-            + f'</div></header>{secs}')
+            + f'</div></header>{secs}{series_block()}')
     return page("Размеры · Шишкина", "razmery", body)
 
 
