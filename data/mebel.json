@@ -1,814 +1,797 @@
 {
- "store": "Лемана ПРО Ижевск",
- "prices_date": "2026-11-01",
- "variants": {
-  "belyj": "Белый · белая кухня + диван олива",
-  "shalfej": "Шалфей · зелёная кухня + светло-серый диван"
- },
- "rooms": [
-  {
-   "id": "prihozhaya",
-   "name": "Прихожая",
-   "items": [
-    {
-     "role": "Обувница-табакерка",
-     "size": "60×24 см, дуб",
-     "why": "Узкая, не съедает проход 1150. Та же серия «Лион», что и тумба под ТВ.",
-     "variant": "all",
-     "main": {
-      "name": "Шкаф для обуви Лион 60×103,9×24 см, дуб комано",
-      "price": 5140,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/shkaf-dlya-obuvi-lion-60x1039x24-sm-2-yashchika-ldsp-cvet-dub-komano-89428001/",
-      "art": "89428001",
-      "photo": "img/89428001.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Крючки над обувницей",
-     "size": "планка 4–5 крючков, чёрный",
-     "why": "Вешаются на 160–170 см над обувницей.",
-     "variant": "all",
-     "main": {
-      "name": "Вешалка Domart на планке, 5 двойных крючков, чёрный/орех",
-      "price": 1819,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/search/?q=92153293",
-      "art": "92153293",
-      "photo": null,
-      "note": "фото — по ссылке",
-      "role": "main"
-     },
-     "extras": [
-      {
-       "name": "Крючок Cappio, чёрный, 1 шт. (взять 4)",
-       "price": 547,
-       "qty": 4,
-       "url": "https://izhevsk.lemanapro.ru/search/?q=91839768",
-       "art": "91839768",
-       "photo": null,
-       "note": "",
-       "role": "alt"
-      }
-     ]
-    },
-    {
-     "role": "Зеркало",
-     "size": "40×150 см",
-     "why": "Верх на 185–190 см от пола, на правой стене.",
-     "variant": "all",
-     "main": {
-      "name": "Зеркало At Home Decor 20216, 40×150 см",
-      "price": 3500,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/dekorativnoe-zerkalo-at-home-decor-20216-40x150-sm-92932411/",
-      "art": "92932411",
-      "photo": "img/92932411.jpg",
-      "note": "рама тонкая светлая",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Коврик у двери",
-     "size": "60×90 см, серый",
-     "why": "Грязезащитный.",
-     "variant": "all",
-     "main": {
-      "name": "Коврик Start 60×90 см, серый",
-      "price": 545,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/kovrik-start-60x90-sm-polipropilen-cvet-seryy-82206269/",
-      "art": "82206269",
-      "photo": "img/82206269.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    }
-   ]
+  "store": "Лемана ПРО Ижевск",
+  "prices_date": "2026-11-01",
+  "variants": {
+    "belyj": "Белый · белая кухня + светло-серый диван",
+    "shalfej": "Шалфей · зелёная кухня + светло-серый диван"
   },
-  {
-   "id": "kuhnya",
-   "name": "Кухня",
-   "items": [
+  "rooms": [
     {
-     "role": "Кухонный гарнитур",
-     "size": "240 см + холодильник 54 см",
-     "why": "Одна модель в двух цветах: под оба варианта. На фото — зелёный.",
-     "variant": "belyj",
-     "main": {
-      "name": "Кухонный гарнитур Техно-6 Миф 240×222,4×60 см, белый",
-      "price": 62090,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/kuhonnyy-garnitur-tehno-6-mif-240x2224x60-sm-cvet-belyy-98422875/",
-      "art": "98422875",
-      "photo": "img/98422875.jpg",
-      "note": "на фото зелёный цвет модели",
-      "role": "main"
-     },
-     "extras": []
+      "id": "prihozhaya",
+      "name": "Прихожая",
+      "items": [
+        {
+          "role": "Обувница-табакерка",
+          "size": "60×24 см, дуб",
+          "why": "Узкая, не съедает проход 1150. Та же серия «Лион», что и тумба под ТВ.",
+          "variant": "all",
+          "main": {
+            "name": "Шкаф для обуви Лион 60×103,9×24 см, дуб комано",
+            "price": 5140,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/shkaf-dlya-obuvi-lion-60x1039x24-sm-2-yashchika-ldsp-cvet-dub-komano-89428001/",
+            "art": "89428001",
+            "photo": "img/89428001.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Крючки над обувницей",
+          "size": "планка 4–5 крючков, чёрный",
+          "why": "Вешаются на 160–170 см над обувницей.",
+          "variant": "all",
+          "main": {
+            "name": "Вешалка Domart на планке, 5 двойных крючков, чёрный/орех",
+            "price": 1819,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/search/?q=92153293",
+            "art": "92153293",
+            "photo": null,
+            "note": "фото — по ссылке",
+            "role": "main"
+          },
+          "extras": [
+            {
+              "name": "Крючок Cappio, чёрный, 1 шт. (взять 4)",
+              "price": 547,
+              "qty": 4,
+              "url": "https://izhevsk.lemanapro.ru/search/?q=91839768",
+              "art": "91839768",
+              "photo": null,
+              "note": "",
+              "role": "alt"
+            }
+          ]
+        },
+        {
+          "role": "Зеркало",
+          "size": "40×150 см",
+          "why": "Верх на 185–190 см от пола, на правой стене.",
+          "variant": "all",
+          "main": {
+            "name": "Зеркало At Home Decor 20216, 40×150 см",
+            "price": 3500,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/dekorativnoe-zerkalo-at-home-decor-20216-40x150-sm-92932411/",
+            "art": "92932411",
+            "photo": "img/92932411.jpg",
+            "note": "рама тонкая светлая",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Коврик у двери",
+          "size": "60×90 см, серый",
+          "why": "Грязезащитный.",
+          "variant": "all",
+          "main": {
+            "name": "Коврик Start 60×90 см, серый",
+            "price": 545,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/kovrik-start-60x90-sm-polipropilen-cvet-seryy-82206269/",
+            "art": "82206269",
+            "photo": "img/82206269.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        }
+      ]
     },
     {
-     "role": "Кухонный гарнитур",
-     "size": "240 см + холодильник 54 см",
-     "why": "Тот же гарнитур, фасады зелёные — ближе всего к шалфею в Лемане.",
-     "variant": "shalfej",
-     "main": {
-      "name": "Кухонный гарнитур Техно-6 Миф 240×222,4×60 см, зелёный",
-      "price": 61990,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/kuhonnyy-garnitur-tehno-6-mif-240x2224x60-sm-cvet-zelenyy-98422806/",
-      "art": "98422806",
-      "photo": "img/98422806.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
+      "id": "kuhnya",
+      "name": "Кухня",
+      "items": [
+        {
+          "role": "Кухонный гарнитур",
+          "size": "240 см + холодильник 54 см",
+          "why": "Одна модель в двух цветах: под оба варианта. На фото — зелёный.",
+          "variant": "belyj",
+          "main": {
+            "name": "Кухонный гарнитур Техно-6 Миф 240×222,4×60 см, белый",
+            "price": 62090,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/kuhonnyy-garnitur-tehno-6-mif-240x2224x60-sm-cvet-belyy-98422875/",
+            "art": "98422875",
+            "photo": "img/98422875.jpg",
+            "note": "на фото зелёный цвет модели",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Кухонный гарнитур",
+          "size": "240 см + холодильник 54 см",
+          "why": "Тот же гарнитур, фасады зелёные — ближе всего к шалфею в Лемане.",
+          "variant": "shalfej",
+          "main": {
+            "name": "Кухонный гарнитур Техно-6 Миф 240×222,4×60 см, зелёный",
+            "price": 61990,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/kuhonnyy-garnitur-tehno-6-mif-240x2224x60-sm-cvet-zelenyy-98422806/",
+            "art": "98422806",
+            "photo": "img/98422806.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Холодильник",
+          "size": "белый, ширина ≤ 57 (297 − гарнитур 240)",
+          "why": "Отдельностоящий, встаёт у окна в линию с гарнитуром.",
+          "variant": "all",
+          "main": {
+            "name": "Холодильник Maunfeld MFF144SFW 54×144 см, белый",
+            "price": 34612,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/otdelnostoyashchiy-holodilnik-maunfeld-mff144sfw-54x144-sm-cvet-belyy-90053834/",
+            "art": "90053834",
+            "photo": "img/90053834.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Варочная панель",
+          "size": "60 см, электрическая",
+          "why": "Стеклокерамика, 4 конфорки.",
+          "variant": "all",
+          "main": {
+            "name": "Электрическая варочная панель Simfer 60 см, 4 конфорки, чёрная",
+            "price": 10790,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/elektricheskaya-varochnaya-panel-60-sm-4-konforki-cvet-chernyy-92970268/",
+            "art": "92970268",
+            "photo": "img/92970268.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Духовой шкаф",
+          "size": "60 см, встраиваемый",
+          "why": "Под варочной панелью.",
+          "variant": "all",
+          "main": {
+            "name": "Духовой шкаф Homsair OES604BK, чёрный",
+            "price": 14990,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/elektricheskiy-vstraivaemyy-duhovoy-shkaf-homsair-oes604bk-595x59x525-sm-cvet-chernyy-seryy-91577322/",
+            "art": "91577322",
+            "photo": "img/91577322.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Мойка",
+          "size": "кварц, графит, под модуль 60",
+          "why": "Не видно капель и известкового налёта.",
+          "variant": "all",
+          "main": {
+            "name": "Мойка GRANULA GR-5102 505×510 мм, графит",
+            "price": 11460,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/kuhonnaya-moyka-granula-kvarcevaya-gr-5102-505510-mm-grafit-93902334/",
+            "art": "93902334",
+            "photo": "img/93902334.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Смеситель",
+          "size": "чёрный",
+          "why": "Гибкий излив.",
+          "variant": "all",
+          "main": {
+            "name": "Смеситель LEDEME L4075B-2, чёрный",
+            "price": 6816,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/smesitel-dlya-kuhni-ledeme-l4075b-2-97892-92721570/",
+            "art": "92721570",
+            "photo": "img/92721570.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Подсветка под шкафами",
+          "size": "тёплый свет, 5 м",
+          "why": "Нужен блок питания 24 В — в цену не входит.",
+          "variant": "all",
+          "main": {
+            "name": "Светодиодная лента Wolta WLS2835, 24 В, 5 м",
+            "price": 1913,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/svetodiodnaya-lenta-wolta-wls2835-14w-140-diod-m-14-vt-m-24-v-1-sm-ip65-5-m-izmenenie-ottenkov-belogo-svet-92228791/",
+            "art": "92228791",
+            "photo": "img/92228791.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        }
+      ]
     },
     {
-     "role": "Холодильник",
-     "size": "белый, ширина ≤ 57 (297 − гарнитур 240)",
-     "why": "Отдельностоящий, встаёт у окна в линию с гарнитуром.",
-     "variant": "all",
-     "main": {
-      "name": "Холодильник Maunfeld MFF144SFW 54×144 см, белый",
-      "price": 34612,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/otdelnostoyashchiy-holodilnik-maunfeld-mff144sfw-54x144-sm-cvet-belyy-90053834/",
-      "art": "90053834",
-      "photo": "img/90053834.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
+      "id": "stolovaya",
+      "name": "Столовая",
+      "items": [
+        {
+          "role": "Обеденный стол",
+          "size": "Ø70 см",
+          "why": "Раздвижных круглых Ø70 в Лемане нет — этот не раскладывается.",
+          "variant": "all",
+          "main": {
+            "name": "Стол круглый Стул груп DSW Ø70 см, белый, ножки бук",
+            "price": 5980,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/kuhonnyy-stol-kruglyy-stul-grup-dsw-70x70-sm-mdf-cvet-belyy-91966127/",
+            "art": "91966127",
+            "photo": "img/91966127.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": [
+            {
+              "name": "Стол раздвижной ТриЯ Промо 90×73, дуб сонома/белый (прямоугольный)",
+              "price": 6299,
+              "qty": 1,
+              "url": "https://izhevsk.lemanapro.ru/search/?q=98257986",
+              "art": "98257986",
+              "photo": null,
+              "note": "",
+              "role": "alt"
+            }
+          ]
+        },
+        {
+          "role": "Стулья",
+          "size": "2 шт.",
+          "why": "Та же модель, что за рабочим столом: графитовые ножки, мягкое сиденье.",
+          "variant": "all",
+          "main": {
+            "name": "Стул Chic, велюр серый, ножки чёрные",
+            "price": 5031,
+            "qty": 2,
+            "url": "https://izhevsk.lemanapro.ru/product/stul-chic-49x77x50-sm-nozhki-metall-chernyy-sidene-velyur-cvet-seryy-89377849/",
+            "art": "89377849",
+            "photo": "img/89377849.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Гостевой табурет",
+          "size": "дерево",
+          "why": "Третье место за столом, в остальное время — подставка.",
+          "variant": "all",
+          "main": {
+            "name": "Табурет 43×45×43 см, дерево натуральное",
+            "price": 953,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/taburet-43x45x43-sm-derevo-cvet-naturalnyy-88796852/",
+            "art": "88796852",
+            "photo": "img/88796852.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        }
+      ]
     },
     {
-     "role": "Варочная панель",
-     "size": "60 см, электрическая",
-     "why": "Стеклокерамика, 4 конфорки.",
-     "variant": "all",
-     "main": {
-      "name": "Электрическая варочная панель Simfer 60 см, 4 конфорки, чёрная",
-      "price": 10790,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/elektricheskaya-varochnaya-panel-60-sm-4-konforki-cvet-chernyy-92970268/",
-      "art": "92970268",
-      "photo": "img/92970268.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
+      "id": "gostinaya",
+      "name": "Гостиная",
+      "items": [
+        {
+          "role": "Диван",
+          "size": "прямой 200 см, светло-серый",
+          "why": "Светло-серый в обоих вариантах: шалфейного 200 см в Лемане нет, серый проще купить и спокойнее. Шалфей остаётся в пуфе и подушках. Раскладной, антивандальный велюр.",
+          "variant": "all",
+          "main": {
+            "name": "Диван Djivani Belfor-3MH 200×97 см, велюр, светло-серый",
+            "price": 23990,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/divan-pryamoy-djivani-belfor-3mh-200x97x58-sm-velyur-cvet-svetlo-seryy-seryy-98390916/",
+            "art": "98390916",
+            "photo": "img/98390916.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": [
+            {
+              "name": "Диван Monofix Фоксет 202×82,5×72 см, велюр, оливковый (если захочется цвета)",
+              "price": 34781,
+              "qty": 1,
+              "url": "https://izhevsk.lemanapro.ru/search/?q=92034853",
+              "art": "92034853",
+              "photo": null,
+              "note": "фото — по ссылке",
+              "role": "alt"
+            }
+          ]
+        },
+        {
+          "role": "Пуф",
+          "size": "80×45 см",
+          "why": "Светло-зелёный — шалфейный акцент в обоих вариантах. Ставится перед диваном вместо столика.",
+          "variant": "all",
+          "main": {
+            "name": "Пуф Аквилон Андрэа Кристи 19, 80×45 см, светло-зелёный",
+            "price": 6870,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/puf-gk-akvilon-andrea-kristi-19-svetlo-zelenyy-80x45-sm-92818401/",
+            "art": "92818401",
+            "photo": "img/92818401.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Тумба под ТВ",
+          "size": "подвесная, 150–160 см, дуб",
+          "why": "Серия «Лион», как обувница.",
+          "variant": "all",
+          "main": {
+            "name": "Тумба под ТВ Лион 150×20×30 см, дуб комано",
+            "price": 5295,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/tumba-pod-televizor-lion-150x20x30-sm-ldsp-cvet-dub-komano-89428008/",
+            "art": "89428008",
+            "photo": "img/89428008.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Кронштейн ТВ",
+          "size": "до 55″",
+          "why": "Центр экрана на 100–110 см.",
+          "variant": "all",
+          "main": {
+            "name": "Кронштейн Kromax Optima-414, 20–55″",
+            "price": 2790,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/kronshteyn-dlya-tv-kromax-optima-414-91260581/",
+            "art": "91260581",
+            "photo": "img/91260581.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Торшер",
+          "size": "чёрный + светлый абажур",
+          "why": "У правого края дивана, лампа 2700 K.",
+          "variant": "all",
+          "main": {
+            "name": "Торшер Eurosvet Rigel 01057/1, чёрный",
+            "price": 13900,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/torsher-s-abazhurom-eurosvet-rigel-01057-1-chernyy-90119047/",
+            "art": "90119047",
+            "photo": "img/90119047.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Ковёр",
+          "size": "160×230 см, кремовый",
+          "why": "Короткий ворс, перед диваном.",
+          "variant": "all",
+          "main": {
+            "name": "Ковёр Шату Lisa 160×230 см, кремовый",
+            "price": 7159,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/kover-poliester-shatu-lisa-160x230-sm-cvet-kremovyy-98419792/",
+            "art": "98419792",
+            "photo": "img/98419792.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Шторы",
+          "size": "лён, 200×280, 2 полотна",
+          "why": "Блэкаут цвета льна — как в спальне, одна закупка.",
+          "variant": "all",
+          "main": {
+            "name": "Штора на ленте блэкаут 200×280 см, эко-лён, бежевый",
+            "price": 3851,
+            "qty": 2,
+            "url": "https://izhevsk.lemanapro.ru/product/shtora-na-lente-blekaut-200x280-sm-eko-len-cvet-bezhevyy-89433186/",
+            "art": "89433186",
+            "photo": "img/89433186.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Тюль",
+          "size": "белый, 300×280",
+          "why": "",
+          "variant": "all",
+          "main": {
+            "name": "Тюль Inspire Polyone 300×280 см, белый",
+            "price": 1162,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/tyul-na-lente-inspire-polyone-300x280-sm-cvet-belyy-white-0-84855337/",
+            "art": "84855337",
+            "photo": "img/84855337.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Подушки",
+          "size": "2 олива + 1 терракота",
+          "why": "",
+          "variant": "all",
+          "main": {
+            "name": "Подушка «Шарики» 45×45 см, оливковая",
+            "price": 1041,
+            "qty": 2,
+            "url": "https://izhevsk.lemanapro.ru/product/podushka-shariki-45x45-sm-cvet-olivkovyy-89451725/",
+            "art": "89451725",
+            "photo": "img/89451725.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": [
+            {
+              "name": "Подушка Linen Way Tony 45×45 см, бархат, терракот",
+              "price": 743,
+              "qty": 1,
+              "url": "https://izhevsk.lemanapro.ru/product/podushka-dekorativnaya-linen-way-tony-45x45-sm-barhat-cvet-terrakot-89439582/",
+              "art": "89439582",
+              "photo": "img/89439582.jpg",
+              "note": "",
+              "role": "addon"
+            }
+          ]
+        },
+        {
+          "role": "Постеры",
+          "size": "2 × 50×70",
+          "why": "Правая стена над торшером, центр на 150 см.",
+          "variant": "all",
+          "main": {
+            "name": "Постер «Листья гинкго», 50×70 см",
+            "price": 870,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/poster-28-kartin-listya-ginkgo-biloba-botanika-50x70-sm-90746559/",
+            "art": "90746559",
+            "photo": "img/90746559.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": [
+            {
+              "name": "Постер «Ботаника, листья», 50×70 см",
+              "price": 870,
+              "qty": 1,
+              "url": "https://izhevsk.lemanapro.ru/product/poster-28-kartin-botanika-listya-abstrakciya-70x50-sm-bez-ramy-90733681/",
+              "art": "90733681",
+              "photo": "img/90733681.jpg",
+              "note": "",
+              "role": "addon"
+            }
+          ]
+        },
+        {
+          "role": "Рамки",
+          "size": "50×70, дуб",
+          "why": "Одинаковые на все постеры квартиры.",
+          "variant": "all",
+          "main": {
+            "name": "Рамка Inspire Milo 50×70 см, дуб",
+            "price": 1530,
+            "qty": 2,
+            "url": "https://izhevsk.lemanapro.ru/product/ramka-inspire-milo-50x70-sm-cvet-dub-85578084/",
+            "art": "85578084",
+            "photo": "img/85578084.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Растение",
+          "size": "80–100 см + кашпо",
+          "why": "Неприхотливое, переживёт смену жильцов.",
+          "variant": "all",
+          "main": {
+            "name": "Фикус «София» ø18, h80 см",
+            "price": 6038,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/fikus-sofiya-18-h80-sm-89447680/",
+            "art": "89447680",
+            "photo": "img/89447680.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": [
+            {
+              "name": "Горшок «Жардин» ø30 см, терракотовый",
+              "price": 390,
+              "qty": 1,
+              "url": "https://izhevsk.lemanapro.ru/search/?q=11952568",
+              "art": "11952568",
+              "photo": null,
+              "note": "",
+              "role": "addon"
+            }
+          ]
+        }
+      ]
     },
     {
-     "role": "Духовой шкаф",
-     "size": "60 см, встраиваемый",
-     "why": "Под варочной панелью.",
-     "variant": "all",
-     "main": {
-      "name": "Духовой шкаф Homsair OES604BK, чёрный",
-      "price": 14990,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/elektricheskiy-vstraivaemyy-duhovoy-shkaf-homsair-oes604bk-595x59x525-sm-cvet-chernyy-seryy-91577322/",
-      "art": "91577322",
-      "photo": "img/91577322.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
+      "id": "spalnya",
+      "name": "Спальня",
+      "items": [
+        {
+          "role": "Шкаф-купе в нишу",
+          "size": "170 см, белый",
+          "why": "Ниша 1710: ширину проверить по замеру; до потолка — верхняя планка.",
+          "variant": "all",
+          "main": {
+            "name": "Шкаф-купе БТС 220×170×61 см, белый ясень",
+            "price": 24878,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/search/?q=90972527",
+            "art": "90972527",
+            "photo": null,
+            "note": "фото и зеркало — уточнить по ссылке",
+            "role": "main"
+          },
+          "extras": [
+            {
+              "name": "Шкаф-купе Шарм-Дизайн 220×170×60 см, белый",
+              "price": 52990,
+              "qty": 1,
+              "url": "https://izhevsk.lemanapro.ru/search/?q=90590651",
+              "art": "90590651",
+              "photo": null,
+              "note": "",
+              "role": "alt"
+            }
+          ]
+        },
+        {
+          "role": "Кровать",
+          "size": "160×200, мягкое изголовье",
+          "why": "С подъёмным механизмом. Матрас — отдельно.",
+          "variant": "all",
+          "main": {
+            "name": "Кровать «Рафаэль» 160×200 см, подъёмный механизм, крем",
+            "price": 31166,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/krovat-rafael-160x200-sm-podemnyy-mehanizm-cvet-krem-98301243/",
+            "art": "98301243",
+            "photo": "img/98301243.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Прикроватные тумбы",
+          "size": "2 шт., дуб",
+          "why": "",
+          "variant": "all",
+          "main": {
+            "name": "Тумба Monofix 40×52×30 см, дуб сонома",
+            "price": 4900,
+            "qty": 2,
+            "url": "https://izhevsk.lemanapro.ru/product/tumba-prikrovatnaya-monofix-40x52x30-sm-1-yashchik-ldsp-cvet-dub-sonoma-91404805/",
+            "art": "91404805",
+            "photo": "img/91404805.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Бра",
+          "size": "2 шт., чёрные",
+          "why": "Над тумбами, 120–130 см от пола.",
+          "variant": "all",
+          "main": {
+            "name": "Бра Citilux Декарт-2 CL704021N, чёрное",
+            "price": 4390,
+            "qty": 2,
+            "url": "https://izhevsk.lemanapro.ru/search/?q=90045831",
+            "art": "90045831",
+            "photo": null,
+            "note": "фото — по ссылке",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Шторы",
+          "size": "блэкаут, лён",
+          "why": "Та же модель, что в гостиной.",
+          "variant": "all",
+          "main": {
+            "name": "Штора на ленте блэкаут 200×280 см, эко-лён, бежевый",
+            "price": 3851,
+            "qty": 2,
+            "url": "https://izhevsk.lemanapro.ru/product/shtora-na-lente-blekaut-200x280-sm-eko-len-cvet-bezhevyy-89433186/",
+            "art": "89433186",
+            "photo": "img/89433186.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Покрывало",
+          "size": "240×220",
+          "why": "Оливкового в Лемане мало: этот плед ближе к мятному.",
+          "variant": "all",
+          "main": {
+            "name": "Плед Этель Waffle 240×220 см, «оливковый»",
+            "price": 3879,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/pled-etel-waffle-240x220-sm-poliester-cvet-olivkovyy-92615745/",
+            "art": "92615745",
+            "photo": "img/92615745.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": [
+            {
+              "name": "Подушка «Руби» 45×45 см, терракот",
+              "price": 583,
+              "qty": 1,
+              "url": "https://izhevsk.lemanapro.ru/product/dekorativnaya-podushka-rubi-45x45-sm-cvet-terrakot-89428271/",
+              "art": "89428271",
+              "photo": "img/89428271.jpg",
+              "note": "",
+              "role": "addon"
+            }
+          ]
+        },
+        {
+          "role": "Постеры над кроватью",
+          "size": "2 × 50×70 + рамки",
+          "why": "Те же рамки, что в гостиной.",
+          "variant": "all",
+          "main": {
+            "name": "Постеры 50×70 (2 шт.) + рамки Inspire Milo (2 шт.)",
+            "price": 4800,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/search/?q=85578084",
+            "art": "85578084",
+            "photo": null,
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Коврики у кровати",
+          "size": "2 × 60×120, однотонные",
+          "why": "У этой серии бывают узоры — брать однотонный белый.",
+          "variant": "all",
+          "main": {
+            "name": "Коврик KREAFORTA Cauvery 60×120 см, белый",
+            "price": 1128,
+            "qty": 2,
+            "url": "https://izhevsk.lemanapro.ru/search/?q=89447061",
+            "art": "89447061",
+            "photo": null,
+            "note": "проверить рисунок",
+            "role": "main"
+          },
+          "extras": []
+        }
+      ]
     },
     {
-     "role": "Мойка",
-     "size": "кварц, графит, под модуль 60",
-     "why": "Не видно капель и известкового налёта.",
-     "variant": "all",
-     "main": {
-      "name": "Мойка GRANULA GR-5102 505×510 мм, графит",
-      "price": 11460,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/kuhonnaya-moyka-granula-kvarcevaya-gr-5102-505510-mm-grafit-93902334/",
-      "art": "93902334",
-      "photo": "img/93902334.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Смеситель",
-     "size": "чёрный",
-     "why": "Гибкий излив.",
-     "variant": "all",
-     "main": {
-      "name": "Смеситель LEDEME L4075B-2, чёрный",
-      "price": 6816,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/smesitel-dlya-kuhni-ledeme-l4075b-2-97892-92721570/",
-      "art": "92721570",
-      "photo": "img/92721570.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Подсветка под шкафами",
-     "size": "тёплый свет, 5 м",
-     "why": "Нужен блок питания 24 В — в цену не входит.",
-     "variant": "all",
-     "main": {
-      "name": "Светодиодная лента Wolta WLS2835, 24 В, 5 м",
-      "price": 1913,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/svetodiodnaya-lenta-wolta-wls2835-14w-140-diod-m-14-vt-m-24-v-1-sm-ip65-5-m-izmenenie-ottenkov-belogo-svet-92228791/",
-      "art": "92228791",
-      "photo": "img/92228791.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
+      "id": "rabochee-mesto",
+      "name": "Рабочее место",
+      "items": [
+        {
+          "role": "Рабочий стол",
+          "size": "100×50 см",
+          "why": "Глубина 50 вместо 45: до кровати останется 620 мм.",
+          "variant": "all",
+          "main": {
+            "name": "Стол письменный Leset Стилвуд 100×76×50 см, чёрный/дуб крафт",
+            "price": 6020,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/stol-pismennyy-leset-stilvud-100x76x50-sm-metall-cvet-chernyy-dub-kraft-98384396/",
+            "art": "98384396",
+            "photo": "img/98384396.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Стул",
+          "size": "мягкий, графитовые ножки",
+          "why": "",
+          "variant": "all",
+          "main": {
+            "name": "Стул Chic, велюр серый, ножки чёрные",
+            "price": 5031,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/product/stul-chic-49x77x50-sm-nozhki-metall-chernyy-sidene-velyur-cvet-seryy-89377849/",
+            "art": "89377849",
+            "photo": "img/89377849.jpg",
+            "note": "",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Настольная лампа",
+          "size": "чёрная",
+          "why": "",
+          "variant": "all",
+          "main": {
+            "name": "Настольная лампа EGLO Priddy, чёрная",
+            "price": 5857,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/search/?q=90165669",
+            "art": "90165669",
+            "photo": null,
+            "note": "фото — по ссылке",
+            "role": "main"
+          },
+          "extras": []
+        },
+        {
+          "role": "Полка над столом",
+          "size": "80 см, дуб",
+          "why": "Карточка товара показывает другую модель — проверить фото.",
+          "variant": "all",
+          "main": {
+            "name": "Полка настенная ТриЯ 80×20 см, дуб сонома",
+            "price": 3299,
+            "qty": 1,
+            "url": "https://izhevsk.lemanapro.ru/search/?q=90189355",
+            "art": "90189355",
+            "photo": null,
+            "note": "уточнить вид",
+            "role": "main"
+          },
+          "extras": []
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "stolovaya",
-   "name": "Столовая",
-   "items": [
-    {
-     "role": "Обеденный стол",
-     "size": "Ø70 см",
-     "why": "Раздвижных круглых Ø70 в Лемане нет — этот не раскладывается.",
-     "variant": "all",
-     "main": {
-      "name": "Стол круглый Стул груп DSW Ø70 см, белый, ножки бук",
-      "price": 5980,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/kuhonnyy-stol-kruglyy-stul-grup-dsw-70x70-sm-mdf-cvet-belyy-91966127/",
-      "art": "91966127",
-      "photo": "img/91966127.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": [
-      {
-       "name": "Стол раздвижной ТриЯ Промо 90×73, дуб сонома/белый (прямоугольный)",
-       "price": 6299,
-       "qty": 1,
-       "url": "https://izhevsk.lemanapro.ru/search/?q=98257986",
-       "art": "98257986",
-       "photo": null,
-       "note": "",
-       "role": "alt"
-      }
-     ]
-    },
-    {
-     "role": "Стулья",
-     "size": "2 шт.",
-     "why": "Та же модель, что за рабочим столом: графитовые ножки, мягкое сиденье.",
-     "variant": "all",
-     "main": {
-      "name": "Стул Chic, велюр серый, ножки чёрные",
-      "price": 5031,
-      "qty": 2,
-      "url": "https://izhevsk.lemanapro.ru/product/stul-chic-49x77x50-sm-nozhki-metall-chernyy-sidene-velyur-cvet-seryy-89377849/",
-      "art": "89377849",
-      "photo": "img/89377849.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Гостевой табурет",
-     "size": "дерево",
-     "why": "Третье место за столом, в остальное время — подставка.",
-     "variant": "all",
-     "main": {
-      "name": "Табурет 43×45×43 см, дерево натуральное",
-      "price": 953,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/taburet-43x45x43-sm-derevo-cvet-naturalnyy-88796852/",
-      "art": "88796852",
-      "photo": "img/88796852.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    }
-   ]
-  },
-  {
-   "id": "gostinaya",
-   "name": "Гостиная",
-   "items": [
-    {
-     "role": "Диван",
-     "size": "прямой 200 см, олива/зелёный",
-     "why": "Шалфейного 200 см в Лемане нет: ближе всего оливковый Фоксет.",
-     "variant": "belyj",
-     "main": {
-      "name": "Диван Monofix Фоксет 202×82,5×72 см, велюр, оливковый",
-      "price": 34781,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/search/?q=92034853",
-      "art": "92034853",
-      "photo": null,
-      "note": "фото — по ссылке",
-      "role": "main"
-     },
-     "extras": [
-      {
-       "name": "Диван Djivani Belfor-8MCH 200×97 см, велюр, зелёный (раскладной, тёмно-изумрудный)",
-       "price": 23990,
-       "qty": 1,
-       "url": "https://izhevsk.lemanapro.ru/product/divan-pryamoy-djivani-belfor-8mch-200x97x58-sm-velyur-cvet-zelenyy-98390878/",
-       "art": "98390878",
-       "photo": null,
-       "note": "",
-       "role": "alt"
-      }
-     ]
-    },
-    {
-     "role": "Диван",
-     "size": "прямой 200 см, светло-серый",
-     "why": "Раскладной, антивандальный велюр.",
-     "variant": "shalfej",
-     "main": {
-      "name": "Диван Djivani Belfor-3MH 200×97 см, велюр, светло-серый",
-      "price": 23990,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/divan-pryamoy-djivani-belfor-3mh-200x97x58-sm-velyur-cvet-svetlo-seryy-seryy-98390916/",
-      "art": "98390916",
-      "photo": "img/98390916.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Пуф",
-     "size": "80×45 см",
-     "why": "Светло-зелёный — шалфейный акцент в обоих вариантах. Ставится перед диваном вместо столика.",
-     "variant": "all",
-     "main": {
-      "name": "Пуф Аквилон Андрэа Кристи 19, 80×45 см, светло-зелёный",
-      "price": 6870,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/puf-gk-akvilon-andrea-kristi-19-svetlo-zelenyy-80x45-sm-92818401/",
-      "art": "92818401",
-      "photo": "img/92818401.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Тумба под ТВ",
-     "size": "подвесная, 150–160 см, дуб",
-     "why": "Серия «Лион», как обувница.",
-     "variant": "all",
-     "main": {
-      "name": "Тумба под ТВ Лион 150×20×30 см, дуб комано",
-      "price": 5295,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/tumba-pod-televizor-lion-150x20x30-sm-ldsp-cvet-dub-komano-89428008/",
-      "art": "89428008",
-      "photo": "img/89428008.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Кронштейн ТВ",
-     "size": "до 55″",
-     "why": "Центр экрана на 100–110 см.",
-     "variant": "all",
-     "main": {
-      "name": "Кронштейн Kromax Optima-414, 20–55″",
-      "price": 2790,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/kronshteyn-dlya-tv-kromax-optima-414-91260581/",
-      "art": "91260581",
-      "photo": "img/91260581.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Торшер",
-     "size": "чёрный + светлый абажур",
-     "why": "У правого края дивана, лампа 2700 K.",
-     "variant": "all",
-     "main": {
-      "name": "Торшер Eurosvet Rigel 01057/1, чёрный",
-      "price": 13900,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/torsher-s-abazhurom-eurosvet-rigel-01057-1-chernyy-90119047/",
-      "art": "90119047",
-      "photo": "img/90119047.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Ковёр",
-     "size": "160×230 см, кремовый",
-     "why": "Короткий ворс, перед диваном.",
-     "variant": "all",
-     "main": {
-      "name": "Ковёр Шату Lisa 160×230 см, кремовый",
-      "price": 7159,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/kover-poliester-shatu-lisa-160x230-sm-cvet-kremovyy-98419792/",
-      "art": "98419792",
-      "photo": "img/98419792.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Шторы",
-     "size": "лён, 200×280, 2 полотна",
-     "why": "Блэкаут цвета льна — как в спальне, одна закупка.",
-     "variant": "all",
-     "main": {
-      "name": "Штора на ленте блэкаут 200×280 см, эко-лён, бежевый",
-      "price": 3851,
-      "qty": 2,
-      "url": "https://izhevsk.lemanapro.ru/product/shtora-na-lente-blekaut-200x280-sm-eko-len-cvet-bezhevyy-89433186/",
-      "art": "89433186",
-      "photo": "img/89433186.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Тюль",
-     "size": "белый, 300×280",
-     "why": "",
-     "variant": "all",
-     "main": {
-      "name": "Тюль Inspire Polyone 300×280 см, белый",
-      "price": 1162,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/tyul-na-lente-inspire-polyone-300x280-sm-cvet-belyy-white-0-84855337/",
-      "art": "84855337",
-      "photo": "img/84855337.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Подушки",
-     "size": "2 олива + 1 терракота",
-     "why": "",
-     "variant": "all",
-     "main": {
-      "name": "Подушка «Шарики» 45×45 см, оливковая",
-      "price": 1041,
-      "qty": 2,
-      "url": "https://izhevsk.lemanapro.ru/product/podushka-shariki-45x45-sm-cvet-olivkovyy-89451725/",
-      "art": "89451725",
-      "photo": "img/89451725.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": [
-      {
-       "name": "Подушка Linen Way Tony 45×45 см, бархат, терракот",
-       "price": 743,
-       "qty": 1,
-       "url": "https://izhevsk.lemanapro.ru/product/podushka-dekorativnaya-linen-way-tony-45x45-sm-barhat-cvet-terrakot-89439582/",
-       "art": "89439582",
-       "photo": "img/89439582.jpg",
-       "note": "",
-       "role": "addon"
-      }
-     ]
-    },
-    {
-     "role": "Постеры",
-     "size": "2 × 50×70",
-     "why": "Правая стена над торшером, центр на 150 см.",
-     "variant": "all",
-     "main": {
-      "name": "Постер «Листья гинкго», 50×70 см",
-      "price": 870,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/poster-28-kartin-listya-ginkgo-biloba-botanika-50x70-sm-90746559/",
-      "art": "90746559",
-      "photo": "img/90746559.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": [
-      {
-       "name": "Постер «Ботаника, листья», 50×70 см",
-       "price": 870,
-       "qty": 1,
-       "url": "https://izhevsk.lemanapro.ru/product/poster-28-kartin-botanika-listya-abstrakciya-70x50-sm-bez-ramy-90733681/",
-       "art": "90733681",
-       "photo": "img/90733681.jpg",
-       "note": "",
-       "role": "addon"
-      }
-     ]
-    },
-    {
-     "role": "Рамки",
-     "size": "50×70, дуб",
-     "why": "Одинаковые на все постеры квартиры.",
-     "variant": "all",
-     "main": {
-      "name": "Рамка Inspire Milo 50×70 см, дуб",
-      "price": 1530,
-      "qty": 2,
-      "url": "https://izhevsk.lemanapro.ru/product/ramka-inspire-milo-50x70-sm-cvet-dub-85578084/",
-      "art": "85578084",
-      "photo": "img/85578084.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Растение",
-     "size": "80–100 см + кашпо",
-     "why": "Неприхотливое, переживёт смену жильцов.",
-     "variant": "all",
-     "main": {
-      "name": "Фикус «София» ø18, h80 см",
-      "price": 6038,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/fikus-sofiya-18-h80-sm-89447680/",
-      "art": "89447680",
-      "photo": "img/89447680.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": [
-      {
-       "name": "Горшок «Жардин» ø30 см, терракотовый",
-       "price": 390,
-       "qty": 1,
-       "url": "https://izhevsk.lemanapro.ru/search/?q=11952568",
-       "art": "11952568",
-       "photo": null,
-       "note": "",
-       "role": "addon"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "spalnya",
-   "name": "Спальня",
-   "items": [
-    {
-     "role": "Шкаф-купе в нишу",
-     "size": "170 см, белый",
-     "why": "Ниша 1710: ширину проверить по замеру; до потолка — верхняя планка.",
-     "variant": "all",
-     "main": {
-      "name": "Шкаф-купе БТС 220×170×61 см, белый ясень",
-      "price": 24878,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/search/?q=90972527",
-      "art": "90972527",
-      "photo": null,
-      "note": "фото и зеркало — уточнить по ссылке",
-      "role": "main"
-     },
-     "extras": [
-      {
-       "name": "Шкаф-купе Шарм-Дизайн 220×170×60 см, белый",
-       "price": 52990,
-       "qty": 1,
-       "url": "https://izhevsk.lemanapro.ru/search/?q=90590651",
-       "art": "90590651",
-       "photo": null,
-       "note": "",
-       "role": "alt"
-      }
-     ]
-    },
-    {
-     "role": "Кровать",
-     "size": "160×200, мягкое изголовье",
-     "why": "С подъёмным механизмом. Матрас — отдельно.",
-     "variant": "all",
-     "main": {
-      "name": "Кровать «Рафаэль» 160×200 см, подъёмный механизм, крем",
-      "price": 31166,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/krovat-rafael-160x200-sm-podemnyy-mehanizm-cvet-krem-98301243/",
-      "art": "98301243",
-      "photo": "img/98301243.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Прикроватные тумбы",
-     "size": "2 шт., дуб",
-     "why": "",
-     "variant": "all",
-     "main": {
-      "name": "Тумба Monofix 40×52×30 см, дуб сонома",
-      "price": 4900,
-      "qty": 2,
-      "url": "https://izhevsk.lemanapro.ru/product/tumba-prikrovatnaya-monofix-40x52x30-sm-1-yashchik-ldsp-cvet-dub-sonoma-91404805/",
-      "art": "91404805",
-      "photo": "img/91404805.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Бра",
-     "size": "2 шт., чёрные",
-     "why": "Над тумбами, 120–130 см от пола.",
-     "variant": "all",
-     "main": {
-      "name": "Бра Citilux Декарт-2 CL704021N, чёрное",
-      "price": 4390,
-      "qty": 2,
-      "url": "https://izhevsk.lemanapro.ru/search/?q=90045831",
-      "art": "90045831",
-      "photo": null,
-      "note": "фото — по ссылке",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Шторы",
-     "size": "блэкаут, лён",
-     "why": "Та же модель, что в гостиной.",
-     "variant": "all",
-     "main": {
-      "name": "Штора на ленте блэкаут 200×280 см, эко-лён, бежевый",
-      "price": 3851,
-      "qty": 2,
-      "url": "https://izhevsk.lemanapro.ru/product/shtora-na-lente-blekaut-200x280-sm-eko-len-cvet-bezhevyy-89433186/",
-      "art": "89433186",
-      "photo": "img/89433186.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Покрывало",
-     "size": "240×220",
-     "why": "Оливкового в Лемане мало: этот плед ближе к мятному.",
-     "variant": "all",
-     "main": {
-      "name": "Плед Этель Waffle 240×220 см, «оливковый»",
-      "price": 3879,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/pled-etel-waffle-240x220-sm-poliester-cvet-olivkovyy-92615745/",
-      "art": "92615745",
-      "photo": "img/92615745.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": [
-      {
-       "name": "Подушка «Руби» 45×45 см, терракот",
-       "price": 583,
-       "qty": 1,
-       "url": "https://izhevsk.lemanapro.ru/product/dekorativnaya-podushka-rubi-45x45-sm-cvet-terrakot-89428271/",
-       "art": "89428271",
-       "photo": "img/89428271.jpg",
-       "note": "",
-       "role": "addon"
-      }
-     ]
-    },
-    {
-     "role": "Постеры над кроватью",
-     "size": "2 × 50×70 + рамки",
-     "why": "Те же рамки, что в гостиной.",
-     "variant": "all",
-     "main": {
-      "name": "Постеры 50×70 (2 шт.) + рамки Inspire Milo (2 шт.)",
-      "price": 4800,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/search/?q=85578084",
-      "art": "85578084",
-      "photo": null,
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Коврики у кровати",
-     "size": "2 × 60×120, однотонные",
-     "why": "У этой серии бывают узоры — брать однотонный белый.",
-     "variant": "all",
-     "main": {
-      "name": "Коврик KREAFORTA Cauvery 60×120 см, белый",
-      "price": 1128,
-      "qty": 2,
-      "url": "https://izhevsk.lemanapro.ru/search/?q=89447061",
-      "art": "89447061",
-      "photo": null,
-      "note": "проверить рисунок",
-      "role": "main"
-     },
-     "extras": []
-    }
-   ]
-  },
-  {
-   "id": "rabochee-mesto",
-   "name": "Рабочее место",
-   "items": [
-    {
-     "role": "Рабочий стол",
-     "size": "100×50 см",
-     "why": "Глубина 50 вместо 45: до кровати останется 620 мм.",
-     "variant": "all",
-     "main": {
-      "name": "Стол письменный Leset Стилвуд 100×76×50 см, чёрный/дуб крафт",
-      "price": 6020,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/stol-pismennyy-leset-stilvud-100x76x50-sm-metall-cvet-chernyy-dub-kraft-98384396/",
-      "art": "98384396",
-      "photo": "img/98384396.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Стул",
-     "size": "мягкий, графитовые ножки",
-     "why": "",
-     "variant": "all",
-     "main": {
-      "name": "Стул Chic, велюр серый, ножки чёрные",
-      "price": 5031,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/product/stul-chic-49x77x50-sm-nozhki-metall-chernyy-sidene-velyur-cvet-seryy-89377849/",
-      "art": "89377849",
-      "photo": "img/89377849.jpg",
-      "note": "",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Настольная лампа",
-     "size": "чёрная",
-     "why": "",
-     "variant": "all",
-     "main": {
-      "name": "Настольная лампа EGLO Priddy, чёрная",
-      "price": 5857,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/search/?q=90165669",
-      "art": "90165669",
-      "photo": null,
-      "note": "фото — по ссылке",
-      "role": "main"
-     },
-     "extras": []
-    },
-    {
-     "role": "Полка над столом",
-     "size": "80 см, дуб",
-     "why": "Карточка товара показывает другую модель — проверить фото.",
-     "variant": "all",
-     "main": {
-      "name": "Полка настенная ТриЯ 80×20 см, дуб сонома",
-      "price": 3299,
-      "qty": 1,
-      "url": "https://izhevsk.lemanapro.ru/search/?q=90189355",
-      "art": "90189355",
-      "photo": null,
-      "note": "уточнить вид",
-      "role": "main"
-     },
-     "extras": []
-    }
-   ]
-  }
- ]
+  ]
 }
