@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs"
 DATA = json.loads((ROOT / "data" / "mebel.json").read_text(encoding="utf-8"))
+SIZES = json.loads((ROOT / "data" / "razmery.json").read_text(encoding="utf-8"))
 CSS = (ROOT / "tools" / "style.css").read_text(encoding="utf-8")
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700'
@@ -88,6 +89,22 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .shot img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
 .shot figcaption{font-size:13.5px;color:var(--muted)}
 @media (max-width:760px){.shots{grid-template-columns:1fr}}
+.sizes{width:100%;border-collapse:collapse;font-size:14px}
+.sizes th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line)}
+.sizes td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.sizes td:first-child{font-family:var(--f-display);font-weight:600;white-space:nowrap}
+.sizes td.mx{font-family:var(--f-mono);font-size:13px;color:var(--accent)}
+.sizes td.why{color:var(--muted);font-size:13.5px}
+.tblwrap{overflow-x:auto}
+@media (max-width:760px){
+  .sizes,.sizes tbody,.sizes tr,.sizes td{display:block}
+  .sizes thead{display:none}
+  .sizes tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .sizes td{border:0;padding:2px 0}
+  .sizes td:first-child{white-space:normal;font-size:16px}
+  .sizes td.mx::before{content:"Максимум: ";font-family:var(--f-body);color:var(--muted)}
+  .sizes td.hv::before{content:"Взято: ";color:var(--muted)}
+}
 .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pager a{text-decoration:none;color:var(--fg);padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
 .pager a:hover{border-color:var(--accent)}
@@ -179,6 +196,7 @@ def nav(current):
         return f'<a href="{file}" data-keep="{file}"{cur}>{name}</a>'
     links = [tab("index.html", "Визуализации", "vizualizacii"),
              tab("planirovki.html", "Планировки", "planirovki"),
+             tab("razmery.html", "Размеры", "razmery"),
              tab("podbor.html", "Общая", "podbor")]
     links += [tab(f'{r["id"]}.html', r["name"], r["id"]) for r in DATA["rooms"]]
     return f'<nav class="nav" aria-label="Страницы">{"".join(links)}</nav>'
@@ -265,6 +283,21 @@ def shots_page():
     return page("Визуализации · Шишкина", "vizualizacii", body)
 
 
+def sizes_page():
+    secs = ""
+    for g in SIZES["groups"]:
+        rows = "".join(
+            f'<tr><td>{html.escape(r["name"])}</td><td class="hv">{html.escape(r["have"])}</td>'
+            f'<td class="mx">{html.escape(r["max"])}</td><td class="why">{html.escape(r["why"])}</td></tr>'
+            for r in g["rows"])
+        secs += (f'<section><h2>{g["room"]} <small><a href="{g["id"]}.html" data-keep="{g["id"]}.html">страница комнаты</a></small></h2>'
+                 f'<div class="tblwrap"><table class="sizes"><thead><tr><th>Что</th><th>Взято в подборе</th>'
+                 f'<th>Максимум</th><th>Что ограничивает</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
+    body = ('<header><div class="eyebrow">Шишкина · Финал 2</div><h1>Размеры и пределы</h1>'
+            f'<p class="lead">{html.escape(SIZES["note"])}</p></header>{secs}')
+    return page("Размеры · Шишкина", "razmery", body)
+
+
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -276,6 +309,7 @@ def main():
     (OUT / "podbor.html").write_text(index_page(), encoding="utf-8")
     (OUT / "planirovki.html").write_text(plans_page(), encoding="utf-8")
     (OUT / "index.html").write_text(shots_page(), encoding="utf-8")
+    (OUT / "razmery.html").write_text(sizes_page(), encoding="utf-8")
     (OUT / "render").mkdir()
     for f in {f for lst in SHOTS.values() for f, _, _ in lst}:
         shutil.copy(ROOT / "vizualizacii" / "render" / f, OUT / "render" / f)

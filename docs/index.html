@@ -124,13 +124,29 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .shot img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
 .shot figcaption{font-size:13.5px;color:var(--muted)}
 @media (max-width:760px){.shots{grid-template-columns:1fr}}
+.sizes{width:100%;border-collapse:collapse;font-size:14px}
+.sizes th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line)}
+.sizes td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.sizes td:first-child{font-family:var(--f-display);font-weight:600;white-space:nowrap}
+.sizes td.mx{font-family:var(--f-mono);font-size:13px;color:var(--accent)}
+.sizes td.why{color:var(--muted);font-size:13.5px}
+.tblwrap{overflow-x:auto}
+@media (max-width:760px){
+  .sizes,.sizes tbody,.sizes tr,.sizes td{display:block}
+  .sizes thead{display:none}
+  .sizes tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .sizes td{border:0;padding:2px 0}
+  .sizes td:first-child{white-space:normal;font-size:16px}
+  .sizes td.mx::before{content:"Максимум: ";font-family:var(--f-body);color:var(--muted)}
+  .sizes td.hv::before{content:"Взято: ";color:var(--muted)}
+}
 .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pager a{text-decoration:none;color:var(--fg);padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
 .pager a:hover{border-color:var(--accent)}
 </style>
 </head>
 <body>
-<div class="topbar"><div class="topbar-in"><div class="vsw"><span class="lbl">Вариант</span><button type="button" data-pick="belyj" aria-pressed="false"><span class="sw" style="background:#F4F3EF"></span>Белый</button><button type="button" data-pick="shalfej" aria-pressed="false"><span class="sw" style="background:#8E9C8F"></span>Шалфей</button></div><nav class="nav" aria-label="Страницы"><a href="index.html" data-keep="index.html" aria-current="page">Визуализации</a><a href="planirovki.html" data-keep="planirovki.html">Планировки</a><a href="podbor.html" data-keep="podbor.html">Общая</a><a href="prihozhaya.html" data-keep="prihozhaya.html">Прихожая</a><a href="kuhnya.html" data-keep="kuhnya.html">Кухня</a><a href="stolovaya.html" data-keep="stolovaya.html">Столовая</a><a href="gostinaya.html" data-keep="gostinaya.html">Гостиная</a><a href="spalnya.html" data-keep="spalnya.html">Спальня</a><a href="rabochee-mesto.html" data-keep="rabochee-mesto.html">Рабочее место</a></nav></div></div>
+<div class="topbar"><div class="topbar-in"><div class="vsw"><span class="lbl">Вариант</span><button type="button" data-pick="belyj" aria-pressed="false"><span class="sw" style="background:#F4F3EF"></span>Белый</button><button type="button" data-pick="shalfej" aria-pressed="false"><span class="sw" style="background:#8E9C8F"></span>Шалфей</button></div><nav class="nav" aria-label="Страницы"><a href="index.html" data-keep="index.html" aria-current="page">Визуализации</a><a href="planirovki.html" data-keep="planirovki.html">Планировки</a><a href="razmery.html" data-keep="razmery.html">Размеры</a><a href="podbor.html" data-keep="podbor.html">Общая</a><a href="prihozhaya.html" data-keep="prihozhaya.html">Прихожая</a><a href="kuhnya.html" data-keep="kuhnya.html">Кухня</a><a href="stolovaya.html" data-keep="stolovaya.html">Столовая</a><a href="gostinaya.html" data-keep="gostinaya.html">Гостиная</a><a href="spalnya.html" data-keep="spalnya.html">Спальня</a><a href="rabochee-mesto.html" data-keep="rabochee-mesto.html">Рабочее место</a></nav></div></div>
 <div class="wrap" style="margin-top:28px"><header><div class="eyebrow">Шишкина · Финал 2</div><h1>Визуализации</h1><p class="lead">Картинки сделаны нейросетью по плану и подбору мебели. Пропорции приблизительные, цвета и размеры смотрите в планах и подборе. Вариант «Белый» или «Шалфей» переключается сверху.</p></header><section><h2>Кухня-гостиная</h2><div class="shots"><figure class="shot" data-only="belyj"><a href="render/belyj-1-vhod-okno.webp" target="_blank" rel="noopener"><img src="render/belyj-1-vhod-okno.webp" alt="От входа на окно" loading="lazy"></a><figcaption>От входа на окно · Белый</figcaption></figure><figure class="shot" data-only="shalfej"><a href="render/shalfej-1-vhod-okno.webp" target="_blank" rel="noopener"><img src="render/shalfej-1-vhod-okno.webp" alt="От входа на окно" loading="lazy"></a><figcaption>От входа на окно · Шалфей</figcaption></figure><figure class="shot" data-only="belyj"><a href="render/belyj-2-okno-tv.webp" target="_blank" rel="noopener"><img src="render/belyj-2-okno-tv.webp" alt="От окна на ТВ" loading="lazy"></a><figcaption>От окна на ТВ · Белый</figcaption></figure><figure class="shot" data-only="shalfej"><a href="render/shalfej-2-okno-tv.webp" target="_blank" rel="noopener"><img src="render/shalfej-2-okno-tv.webp" alt="От окна на ТВ" loading="lazy"></a><figcaption>От окна на ТВ · Шалфей</figcaption></figure></div></section><section><h2>Спальня</h2><div class="shots"><figure class="shot"><a href="render/spalnya-1-okno.webp" target="_blank" rel="noopener"><img src="render/spalnya-1-okno.webp" alt="Спальня: вид на окно и рабочее место" loading="lazy"></a><figcaption>Спальня: вид на окно и рабочее место</figcaption></figure><figure class="shot"><a href="render/spalnya-2-shkaf-dver.webp" target="_blank" rel="noopener"><img src="render/spalnya-2-shkaf-dver.webp" alt="Спальня: шкаф-купе и дверь" loading="lazy"></a><figcaption>Спальня: шкаф-купе и дверь</figcaption></figure></div></section><section><h2>Прихожая</h2><div class="shots one"><figure class="shot"><a href="render/prihozhaya.png" target="_blank" rel="noopener"><img src="render/prihozhaya.png" alt="Прихожая от спальни к входной двери" loading="lazy"></a><figcaption>Прихожая от спальни к входной двери</figcaption></figure></div></section></div>
 <script>
 (function(){var d=document.documentElement;
