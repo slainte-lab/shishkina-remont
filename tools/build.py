@@ -118,6 +118,9 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .pal small{color:var(--muted);font-size:12px}
 .sizes td.cl{font-size:13.5px;min-width:170px}
 .sizes td.cl.sw-note{color:var(--muted)}
+.pickline{display:block;margin-top:6px;color:var(--terra);font-size:12.5px}
+.pickline b{font-weight:600}
+.palh{margin:10px 0 0;font-family:var(--f-body);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .legend{display:flex;flex-direction:column;gap:6px;font-size:14px}
 @media (max-width:760px){
   .sizes,.sizes tbody,.sizes tr,.sizes td{display:block}
@@ -323,11 +326,18 @@ def dots(sw):
     return '<span class="dots">' + "".join(f'<i style="background:{c}"></i>' for c in sw) + '</span>'
 
 
+def pick_line(pk):
+    return f'<span class="pickline">{dots(pk["sw"])}<b>В подборе:</b> {html.escape(pk["t"])}</span>'
+
+
 def color_cell(r):
     if "colorV" in r:
-        inner = "".join(f'<span data-only="{v}">{dots(c["sw"])}{html.escape(c["t"])}</span>' for v, c in r["colorV"].items())
+        inner = "".join(
+            f'<span data-only="{v}">{dots(c["sw"])}{html.escape(c["t"])}'
+            + (pick_line(r["pickV"][v]) if v in r.get("pickV", {}) else "") + '</span>'
+            for v, c in r["colorV"].items())
     elif "color" in r:
-        inner = f'{dots(r["color"]["sw"])}{html.escape(r["color"]["t"])}'
+        inner = f'{dots(r["color"]["sw"])}{html.escape(r["color"]["t"])}' + (pick_line(r["pick"]) if "pick" in r else "")
     else:
         inner = ""
     return f'<td class="cl">{inner}</td>'
@@ -335,9 +345,12 @@ def color_cell(r):
 
 def palette_block():
     pl = SIZES["palette"]
-    chips = "".join(f'<div><i style="background:{c["h"]}"></i><span>{html.escape(c["n"])}<br><small>{html.escape(c["t"])}</small></span></div>'
-                    for c in pl["colors"])
-    return (f'<section><h2>Палитра <small>{html.escape(pl["note"])}</small></h2><div class="pal">{chips}</div></section>')
+    groups = ""
+    for g in pl["groups"]:
+        chips = "".join(f'<div><i style="background:{c["h"]}"></i><span>{html.escape(c["n"])}<br><small>{html.escape(c["t"])}</small></span></div>'
+                        for c in g["colors"])
+        groups += f'<h3 class="palh">{html.escape(g["h"])}</h3><div class="pal">{chips}</div>'
+    return f'<section><h2>Палитра <small>{html.escape(pl["note"])}</small></h2>{groups}</section>'
 
 
 def sizes_page():
@@ -351,7 +364,7 @@ def sizes_page():
             + '</td></tr>'
             for r in g["rows"])
         secs += (f'<section><h2>{g["room"]} <small><a href="{g["id"]}.html" data-keep="{g["id"]}.html">страница комнаты</a></small></h2>'
-                 f'<div class="tblwrap"><table class="sizes"><thead><tr><th>Что</th><th>Взято в подборе</th><th>Цвет</th>'
+                 f'<div class="tblwrap"><table class="sizes"><thead><tr><th>Что</th><th>Взято в подборе</th><th>Цвет по дизайну</th>'
                  f'<th>Максимум</th><th>Что ограничивает</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
     body = ('<header><div class="eyebrow">Шишкина · Финал 2</div><h1>Размеры и пределы</h1>'
             f'<p class="lead">{html.escape(SIZES["note"])}</p>'
