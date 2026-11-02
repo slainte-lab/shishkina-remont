@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru" data-v="belyj">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Визуализации · Шишкина</title>
+<script>
+(function(){var d=document.documentElement,v=null;
+try{v=new URLSearchParams(location.search).get('v')}catch(e){}
+if(v!=='belyj'&&v!=='shalfej'){try{v=localStorage.getItem('variant')}catch(e){}}
+if(v!=='belyj'&&v!=='shalfej')v='belyj';
+d.setAttribute('data-v',v);})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: shopping list by room; each item = product photo + required size + main pick + alternatives */
+:root{
+  --bg:#F5F6F3; --surface:#FFFFFF; --fg:#1F2321; --muted:#5C635E; --line:#DCE0DA;
+  --sage:#8E9C8F; --olive:#6F7559; --oak:#CDB99D; --linen:#E6E0D4; --terra:#B7765A; --graph:#2F3033;
+  --accent:#4E6150; --chip:#EEF1EC;
+  --f-display:"Onest",system-ui,sans-serif; --f-body:"Manrope",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#161917; --surface:#1F2421; --fg:#E7EBE6; --muted:#A3ABA4; --line:#323934;
+  --oak:#B9A486; --linen:#4A4740; --terra:#C08467; --graph:#D6D8D3; --olive:#8A916F;
+  --accent:#A9C0AA; --chip:#2A302C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161917; --surface:#1F2421; --fg:#E7EBE6; --muted:#A3ABA4; --line:#323934;
+  --oak:#B9A486; --linen:#4A4740; --terra:#C08467; --graph:#D6D8D3; --olive:#8A916F;
+  --accent:#A9C0AA; --chip:#2A302C; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 56px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+header{display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:var(--f-display);font-size:clamp(28px,5vw,42px);line-height:1.1;margin:0;text-wrap:balance;font-weight:700}
+.lead{color:var(--muted);max-width:70ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--chip);border-radius:999px;padding:4px 10px;font-size:13px}
+.sw{width:12px;height:12px;border-radius:50%;display:inline-block}
+.total{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;padding:14px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.total b{font-family:var(--f-display);font-size:26px;font-variant-numeric:tabular-nums}
+.total span{color:var(--muted);font-size:13.5px}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-family:var(--f-display);font-size:22px;margin:0;font-weight:600;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+h2 small{font-family:var(--f-body);font-size:13px;color:var(--muted);font-weight:500}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:180px minmax(0,1fr) minmax(0,1.1fr);gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
+.photo{display:block;width:180px;height:180px;border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.what{display:flex;flex-direction:column;gap:5px;min-width:0}
+.what h3{margin:0;font-family:var(--f-display);font-size:17px;font-weight:600}
+.size{font-family:var(--f-mono);font-size:13px;color:var(--accent)}
+.why{font-size:13.5px;color:var(--muted)}
+.links{display:flex;flex-direction:column;gap:8px;min-width:0}
+.links a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:baseline;text-decoration:none;color:var(--fg);padding:9px 11px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.links a.main{border-color:var(--accent)}
+.links a:hover{border-color:var(--accent)}
+.links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.shop{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.pname{font-size:14px;overflow-wrap:anywhere}
+.price{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.main .price{color:var(--fg)}
+.alt-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+footer{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+@media (max-width:760px){
+  .item{grid-template-columns:120px minmax(0,1fr);gap:14px}
+  .photo{width:120px;height:120px}
+  .links{grid-column:1 / -1}
+  .links a{grid-template-columns:auto minmax(0,1fr)}
+  .price{grid-column:2}
+}
+
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{font:inherit;font-size:14px;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.seg button[aria-pressed="true"]{border-color:var(--accent);background:var(--chip);font-weight:600}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#app[data-sel="B"] [data-v="S"],#app[data-sel="S"] [data-v="B"]{display:none}
+.vb{font-family:var(--f-body);font-size:11px;font-weight:600;letter-spacing:.04em;padding:1px 8px;border-radius:999px;background:var(--chip);color:var(--muted);margin-left:8px;vertical-align:2px}
+.vb.s{background:var(--sage);color:#fff}
+.note{display:block;font-size:12px;color:var(--terra);margin-top:2px}
+.photo.noimg{display:flex;align-items:center;justify-content:center;background:var(--chip);color:var(--muted);font-size:12.5px;text-align:center}
+
+.topbar{position:sticky;top:0;z-index:5;margin:-32px calc(-1*max(16px,env(safe-area-inset-left,0px))) 0;padding:10px max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1080px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.vsw{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vsw .lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.vsw button{font:inherit;font-size:14px;display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.vsw button[aria-pressed="true"]{border-color:var(--accent);background:var(--chip);font-weight:600}
+.vsw button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sw{border:1px solid var(--line)}
+.nav{display:flex;flex-wrap:wrap;gap:6px}
+.nav a{font-size:13.5px;text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.nav a[aria-current="page"]{border-color:var(--accent);background:var(--chip);font-weight:600}
+.nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="belyj"]{display:none!important}
+.vcards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.vcard{font:inherit;text-align:left;color:var(--fg);display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:14px;border:2px solid var(--line);background:var(--surface);cursor:pointer}
+.vcard[aria-pressed="true"]{border-color:var(--accent);background:var(--chip)}
+.vcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.vcard .vt{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-size:22px;font-weight:700}
+.vcard .vt i{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.vcard .vd{color:var(--muted);font-size:14px}
+.vcard .vs{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:15px}
+@media (max-width:560px){.vcards{grid-template-columns:1fr}}
+.rooms{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.rooms a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:14px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.rooms a:hover .rn{color:var(--accent)}
+.rooms a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rn{font-family:var(--f-display);font-size:18px;font-weight:600}
+.rc{font-size:13px;color:var(--muted)}
+.rs{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.note{display:block;font-size:12px;color:var(--terra);margin-top:2px}
+.photo.noimg{display:flex;align-items:center;justify-content:center;background:var(--chip);color:var(--muted);font-size:12.5px;text-align:center}
+.plans{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.plan{margin:0;display:flex;flex-direction:column;gap:8px}
+.plan img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
+.plan figcaption{font-size:13.5px;color:var(--muted)}
+.total a{color:var(--accent);font-weight:600}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.shots.one{grid-template-columns:minmax(0,1fr)}
+.shot{margin:0;display:flex;flex-direction:column;gap:8px}
+.shot img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
+.shot figcaption{font-size:13.5px;color:var(--muted)}
+@media (max-width:760px){.shots{grid-template-columns:1fr}}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pager a{text-decoration:none;color:var(--fg);padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.pager a:hover{border-color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in"><div class="vsw"><span class="lbl">Вариант</span><button type="button" data-pick="belyj" aria-pressed="false"><span class="sw" style="background:#F4F3EF"></span>Белый</button><button type="button" data-pick="shalfej" aria-pressed="false"><span class="sw" style="background:#8E9C8F"></span>Шалфей</button></div><nav class="nav" aria-label="Комнаты"><a href="index.html" data-keep="index.html">Общая</a><a href="prihozhaya.html" data-keep="prihozhaya.html">Прихожая</a><a href="kuhnya.html" data-keep="kuhnya.html">Кухня</a><a href="stolovaya.html" data-keep="stolovaya.html">Столовая</a><a href="gostinaya.html" data-keep="gostinaya.html">Гостиная</a><a href="spalnya.html" data-keep="spalnya.html">Спальня</a><a href="rabochee-mesto.html" data-keep="rabochee-mesto.html">Рабочее место</a><a href="planirovki.html" data-keep="planirovki.html">Планировки</a><a href="vizualizacii.html" data-keep="vizualizacii.html" aria-current="page">Визуализации</a></nav></div></div>
+<div class="wrap" style="margin-top:28px"><header><div class="eyebrow">Шишкина · Финал 2</div><h1>Визуализации</h1><p class="lead">Картинки сделаны нейросетью по плану и подбору мебели. Пропорции приблизительные, цвета и размеры смотрите в планах и подборе.</p></header><section><h2>Кухня-гостиная</h2><div class="shots"><figure class="shot" data-only="belyj"><a href="render/belyj-1-vhod-okno.webp" target="_blank" rel="noopener"><img src="render/belyj-1-vhod-okno.webp" alt="От входа на окно" loading="lazy"></a><figcaption>От входа на окно · Белый</figcaption></figure><figure class="shot" data-only="shalfej"><a href="render/shalfej-1-vhod-okno.webp" target="_blank" rel="noopener"><img src="render/shalfej-1-vhod-okno.webp" alt="От входа на окно" loading="lazy"></a><figcaption>От входа на окно · Шалфей</figcaption></figure><figure class="shot" data-only="belyj"><a href="render/belyj-2-okno-tv.webp" target="_blank" rel="noopener"><img src="render/belyj-2-okno-tv.webp" alt="От окна на ТВ" loading="lazy"></a><figcaption>От окна на ТВ · Белый</figcaption></figure><figure class="shot" data-only="shalfej"><a href="render/shalfej-2-okno-tv.webp" target="_blank" rel="noopener"><img src="render/shalfej-2-okno-tv.webp" alt="От окна на ТВ" loading="lazy"></a><figcaption>От окна на ТВ · Шалфей</figcaption></figure></div></section><section><h2>Спальня</h2><div class="shots"><figure class="shot"><a href="render/spalnya-1-okno.webp" target="_blank" rel="noopener"><img src="render/spalnya-1-okno.webp" alt="Спальня: вид на окно и рабочее место" loading="lazy"></a><figcaption>Спальня: вид на окно и рабочее место</figcaption></figure><figure class="shot"><a href="render/spalnya-2-shkaf-dver.webp" target="_blank" rel="noopener"><img src="render/spalnya-2-shkaf-dver.webp" alt="Спальня: шкаф-купе и дверь" loading="lazy"></a><figcaption>Спальня: шкаф-купе и дверь</figcaption></figure></div></section><section><h2>Прихожая</h2><div class="shots one"><figure class="shot"><a href="render/prihozhaya.png" target="_blank" rel="noopener"><img src="render/prihozhaya.png" alt="Прихожая от спальни к входной двери" loading="lazy"></a><figcaption>Прихожая от спальни к входной двери</figcaption></figure></div></section></div>
+<script>
+(function(){var d=document.documentElement;
+function apply(v,save){
+  d.setAttribute('data-v',v);
+  if(save){try{localStorage.setItem('variant',v)}catch(e){}}
+  document.querySelectorAll('[data-pick]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.pick===v))});
+  document.querySelectorAll('a[data-keep]').forEach(function(a){a.setAttribute('href',a.dataset.keep+'?v='+v)});
+  try{history.replaceState(null,'','?v='+v)}catch(e){}
+}
+document.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.pick,true)})});
+apply(d.getAttribute('data-v'),false);
+})();
+</script>
+</body>
+</html>

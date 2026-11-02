@@ -28,6 +28,21 @@ PLANS = [
     ("08", "План с размерами", "all"),
     ("09", "Что замерить", "all"),
 ]
+# Визуализации: (файл в vizualizacii/render, подпись, вариант: all | belyj | shalfej)
+SHOTS = {
+    "kg1": [("belyj-1-vhod-okno.webp", "От входа на окно", "belyj"),
+            ("shalfej-1-vhod-okno.webp", "От входа на окно", "shalfej")],
+    "kg2": [("belyj-2-okno-tv.webp", "От окна на ТВ", "belyj"),
+            ("shalfej-2-okno-tv.webp", "От окна на ТВ", "shalfej")],
+    "sp1": [("spalnya-1-okno.webp", "Спальня: вид на окно и рабочее место", "all")],
+    "sp2": [("spalnya-2-shkaf-dver.webp", "Спальня: шкаф-купе и дверь", "all")],
+    "pr": [("prihozhaya.png", "Прихожая от спальни к входной двери", "all")],
+}
+# что показывать на странице комнаты
+ROOM_SHOTS = {
+    "prihozhaya": ["pr"], "kuhnya": ["kg1", "kg2"], "stolovaya": ["kg1"],
+    "gostinaya": ["kg1", "kg2"], "spalnya": ["sp1", "sp2"], "rabochee-mesto": ["sp1"],
+}
 SWATCH = {"belyj": "#F4F3EF", "shalfej": "#8E9C8F"}
 
 EXTRA_CSS = """
@@ -67,6 +82,12 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .plan img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
 .plan figcaption{font-size:13.5px;color:var(--muted)}
 .total a{color:var(--accent);font-weight:600}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.shots.one{grid-template-columns:minmax(0,1fr)}
+.shot{margin:0;display:flex;flex-direction:column;gap:8px}
+.shot img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
+.shot figcaption{font-size:13.5px;color:var(--muted)}
+@media (max-width:760px){.shots{grid-template-columns:1fr}}
 .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pager a{text-decoration:none;color:var(--fg);padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
 .pager a:hover{border-color:var(--accent)}
@@ -142,6 +163,15 @@ def switcher():
     return f'<div class="vsw"><span class="lbl">Вариант</span>{btns}</div>'
 
 
+def shots(keys, cols=2):
+    figs = "".join(
+        f'<figure class="shot"{"" if v == "all" else f" data-only=\"{v}\""}>'
+        f'<a href="render/{f}" target="_blank" rel="noopener"><img src="render/{f}" alt="{c}" loading="lazy"></a>'
+        f'<figcaption>{c}{"" if v == "all" else f" · {TITLE[v]}"}</figcaption></figure>'
+        for k in keys for f, c, v in SHOTS[k])
+    return f'<div class="shots{" one" if cols == 1 else ""}">{figs}</div>'
+
+
 def nav(current):
     cur = ' aria-current="page"' if current == "index" else ""
     links = [f'<a href="index.html" data-keep="index.html"{cur}>Общая</a>']
@@ -150,6 +180,8 @@ def nav(current):
         links.append(f'<a href="{r["id"]}.html" data-keep="{r["id"]}.html"{cur}>{r["name"]}</a>')
     cur = ' aria-current="page"' if current == "planirovki" else ""
     links.append(f'<a href="planirovki.html" data-keep="planirovki.html"{cur}>Планировки</a>')
+    cur = ' aria-current="page"' if current == "vizualizacii" else ""
+    links.append(f'<a href="vizualizacii.html" data-keep="vizualizacii.html"{cur}>Визуализации</a>')
     return f'<nav class="nav" aria-label="Комнаты">{"".join(links)}</nav>'
 
 
@@ -182,6 +214,7 @@ def room_page(idx, room):
     body = (f'<header><div class="eyebrow">Шишкина · {eyebrow} · {room["name"]}</div>'
             f'<h1>{room["name"]}</h1>'
             f'<div class="total">{total}<span>Цены {DATA["store"]} на {DATA["prices_date"]}.</span></div></header>'
+            f'<section><h2>Визуализации</h2>{shots(ROOM_SHOTS[room["id"]], 1 if len(ROOM_SHOTS[room["id"]]) == 1 else 2)}</section>'
             f'<section><div class="list">{rows}</div></section>'
             f'<div class="pager">{pager}</div>')
     return page(f'{room["name"]} · Шишкина', room["id"], body)
@@ -222,6 +255,16 @@ def plans_page():
     return page("Планировки · Шишкина", "planirovki", body)
 
 
+def shots_page():
+    body = ('<header><div class="eyebrow">Шишкина · Финал 2</div><h1>Визуализации</h1>'
+            '<p class="lead">Картинки сделаны нейросетью по плану и подбору мебели. '
+            'Пропорции приблизительные, цвета и размеры смотрите в планах и подборе.</p></header>'
+            f'<section><h2>Кухня-гостиная</h2>{shots(["kg1", "kg2"])}</section>'
+            f'<section><h2>Спальня</h2>{shots(["sp1", "sp2"])}</section>'
+            f'<section><h2>Прихожая</h2>{shots(["pr"], 1)}</section>')
+    return page("Визуализации · Шишкина", "vizualizacii", body)
+
+
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -232,6 +275,10 @@ def main():
         used |= {i["main"]["photo"] for i in r["items"] if i["main"]["photo"]}
     (OUT / "index.html").write_text(index_page(), encoding="utf-8")
     (OUT / "planirovki.html").write_text(plans_page(), encoding="utf-8")
+    (OUT / "vizualizacii.html").write_text(shots_page(), encoding="utf-8")
+    (OUT / "render").mkdir()
+    for f in {f for lst in SHOTS.values() for f, _, _ in lst}:
+        shutil.copy(ROOT / "vizualizacii" / "render" / f, OUT / "render" / f)
     shutil.copytree(ROOT / "planirovki", OUT / "planirovki", ignore=shutil.ignore_patterns("README.md"))
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
     for p in used:
