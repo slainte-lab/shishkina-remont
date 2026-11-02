@@ -292,23 +292,6 @@
             "role": "main"
           },
           "extras": []
-        },
-        {
-          "role": "Гостевой табурет",
-          "size": "дерево",
-          "why": "Третье место за столом, в остальное время — подставка.",
-          "variant": "all",
-          "main": {
-            "name": "Табурет 43×45×43 см, дерево натуральное",
-            "price": 953,
-            "qty": 1,
-            "url": "https://izhevsk.lemanapro.ru/product/taburet-43x45x43-sm-derevo-cvet-naturalnyy-88796852/",
-            "art": "88796852",
-            "photo": "img/88796852.jpg",
-            "note": "",
-            "role": "main"
-          },
-          "extras": []
         }
       ]
     },
@@ -397,17 +380,17 @@
         },
         {
           "role": "Торшер",
-          "size": "чёрный + светлый абажур",
-          "why": "У правого края дивана, лампа 2700 K.",
+          "size": "чёрный + светлый абажур, до 6 000 ₽",
+          "why": "Бюджет до 6 000 ₽. Тёплый свет 2700 K. Цвет стойки и абажура сверить по фото.",
           "variant": "all",
           "main": {
-            "name": "Торшер Eurosvet Rigel 01057/1, чёрный",
-            "price": 13900,
+            "name": "Торшер напольный с абажуром из ткани (WB)",
+            "price": 3056,
             "qty": 1,
-            "url": "https://izhevsk.lemanapro.ru/product/torsher-s-abazhurom-eurosvet-rigel-01057-1-chernyy-90119047/",
-            "art": "90119047",
-            "photo": "img/90119047.jpg",
-            "note": "",
+            "url": "https://www.wildberries.ru/catalog/229676170/detail.aspx",
+            "art": "WB 229676170",
+            "photo": null,
+            "note": "WB: цвет стойки и абажура проверить",
             "role": "main"
           },
           "extras": []
@@ -535,34 +518,6 @@
             "role": "main"
           },
           "extras": []
-        },
-        {
-          "role": "Растение",
-          "size": "80–100 см + кашпо",
-          "why": "Неприхотливое, переживёт смену жильцов.",
-          "variant": "all",
-          "main": {
-            "name": "Фикус «София» ø18, h80 см",
-            "price": 6038,
-            "qty": 1,
-            "url": "https://izhevsk.lemanapro.ru/product/fikus-sofiya-18-h80-sm-89447680/",
-            "art": "89447680",
-            "photo": "img/89447680.jpg",
-            "note": "",
-            "role": "main"
-          },
-          "extras": [
-            {
-              "name": "Горшок «Жардин» ø30 см, терракотовый",
-              "price": 390,
-              "qty": 1,
-              "url": "https://izhevsk.lemanapro.ru/search/?q=11952568",
-              "art": "11952568",
-              "photo": null,
-              "note": "",
-              "role": "addon"
-            }
-          ]
         }
       ]
     },
@@ -693,23 +648,6 @@
             "role": "main"
           },
           "extras": []
-        },
-        {
-          "role": "Коврики у кровати",
-          "size": "2 × 60×120, однотонные",
-          "why": "У этой серии бывают узоры — брать однотонный белый.",
-          "variant": "all",
-          "main": {
-            "name": "Коврик KREAFORTA Cauvery 60×120 см, белый",
-            "price": 1128,
-            "qty": 2,
-            "url": "https://izhevsk.lemanapro.ru/search/?q=89447061",
-            "art": "89447061",
-            "photo": null,
-            "note": "проверить рисунок",
-            "role": "main"
-          },
-          "extras": []
         }
       ]
     },
@@ -747,23 +685,6 @@
             "art": "89377849",
             "photo": "img/89377849.jpg",
             "note": "",
-            "role": "main"
-          },
-          "extras": []
-        },
-        {
-          "role": "Настольная лампа",
-          "size": "чёрная",
-          "why": "",
-          "variant": "all",
-          "main": {
-            "name": "Настольная лампа EGLO Priddy, чёрная",
-            "price": 5857,
-            "qty": 1,
-            "url": "https://izhevsk.lemanapro.ru/search/?q=90165669",
-            "art": "90165669",
-            "photo": null,
-            "note": "фото — по ссылке",
             "role": "main"
           },
           "extras": []

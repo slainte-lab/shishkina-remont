@@ -8,12 +8,14 @@ import html
 import json
 import shutil
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs"
 DATA = json.loads((ROOT / "data" / "mebel.json").read_text(encoding="utf-8"))
 SIZES = json.loads((ROOT / "data" / "razmery.json").read_text(encoding="utf-8"))
-CSS = (ROOT / "tools" / "style.css").read_text(encoding="utf-8")
+OPTS = json.loads((ROOT / "data" / "variants.json").read_text(encoding="utf-8"))
+CSS =(ROOT / "tools" / "style.css").read_text(encoding="utf-8")
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700'
          '&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">')
@@ -55,6 +57,14 @@ EXTRA_CSS = """
 .vsw button[aria-pressed="true"]{border-color:var(--accent);background:var(--chip);font-weight:600}
 .vsw button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sw{border:1px solid var(--line)}
+.opts{grid-column:1/-1;margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+.opts summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent);list-style:none}
+.opts summary::-webkit-details-marker{display:none}
+.opts summary::before{content:"▸ ";}
+.opts[open] summary::before{content:"▾ ";}
+.opts .links{margin-top:8px}
+.srch{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:8px;font-size:12px;color:var(--muted)}
+.srch a{padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--fg);text-decoration:none;background:var(--surface)}
 .nav{display:flex;flex-wrap:wrap;gap:6px}
 .nav a{font-size:13.5px;text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
 .nav a[aria-current="page"]{border-color:var(--accent);background:var(--chip);font-weight:600}
@@ -194,6 +204,33 @@ def link(p, main):
             f'<span class="price">{rub(p["price"])}{q}</span></a>')
 
 
+def opt_link(o):
+    note = f'<span class="note">{html.escape(o["note"])}</span>' if o["note"] else ""
+    return (f'<a href="{html.escape(o["url"])}" target="_blank" rel="noopener">'
+            f'<span class="shop">{o["shop"]}</span><span class="pname">{html.escape(o["name"])}{note}</span>'
+            f'<span class="price">{rub(o["price"])}</span></a>')
+
+
+def search_links(q):
+    enc = quote(q)
+    urls = [("Ozon", f"https://www.ozon.ru/search/?text={enc}"),
+            ("WB", f"https://www.wildberries.ru/catalog/0/search.aspx?search={enc}"),
+            ("Hoff", f"https://hoff.ru/search/?search={enc}"),
+            ("Avito", f"https://www.avito.ru/izhevsk?q={enc}")]
+    return "".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n, u in urls)
+
+
+def options_block(room_id, role):
+    d = OPTS.get(f"{room_id}|{role}")
+    if not d:
+        return ""
+    opts = sorted(d["options"], key=lambda o: o["price"])
+    lo = rub(opts[0]["price"])
+    return (f'<details class="opts"><summary>Где ещё искать · {len(opts)} вариантов, от {lo}</summary>'
+            f'<div class="links">{"".join(opt_link(o) for o in opts)}</div>'
+            f'<div class="srch"><span>Поиск самому:</span>{search_links(d["q"])}</div></details>')
+
+
 def photo(p):
     if not p["photo"]:
         return '<div class="photo noimg"><span>фото<br>по ссылке</span></div>'
@@ -244,7 +281,8 @@ def room_page(idx, room):
         label = '<div class="alt-label">ещё / в комплект</div>' if i["extras"] else ""
         rows += (f'<div class="item"{only(i)}>{photo(i["main"])}<div class="what"><h3>{html.escape(i["role"])}</h3>'
                  f'<div class="size">{html.escape(i["size"])}</div><div class="why">{html.escape(i["why"])}</div></div>'
-                 f'<div class="links">{link(i["main"], True)}{label}{extras}</div></div>\n')
+                 f'<div class="links">{link(i["main"], True)}{label}{extras}</div>'
+                 f'{options_block(room["id"], i["role"])}</div>\n')
     rooms = DATA["rooms"]
     prev = rooms[idx - 1] if idx > 0 else None
     nxt = rooms[idx + 1] if idx < len(rooms) - 1 else None
@@ -257,7 +295,7 @@ def room_page(idx, room):
     eyebrow = per_variant(lambda v: f"вариант «{TITLE[v]}»")
     body = (f'<header><div class="eyebrow">Шишкина · {eyebrow} · {room["name"]}</div>'
             f'<h1>{room["name"]}</h1>'
-            f'<div class="total">{total}<span>Цены {DATA["store"]} на {DATA["prices_date"]}.</span></div></header>'
+            f'<div class="total">{total}<span>Цены {DATA["store"]} на {DATA["prices_date"]}. В блоках «Где ещё искать»: Ozon, WB, Hoff, Avito на 02.11.2026, цены ориентировочные, цвет и размер сверять по карточке.</span></div></header>'
             f'<section><h2>Визуализации</h2>{shots(ROOM_SHOTS[room["id"]], 1 if len(ROOM_SHOTS[room["id"]]) == 1 else 2)}</section>'
             f'<section><div class="list">{rows}</div></section>'
             f'<div class="pager">{pager}</div>')
