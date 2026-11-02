@@ -11,7 +11,7 @@
 
 ## Как устроено
 - `data/mebel.json` — единственный источник подбора: rooms[].items[] → main (основной товар), extras (role `addon` входит в сумму, `alt` — запасной), variant `all|belyj|shalfej`.
-- `python3 tools/build.py` → `docs/index.html` (общая, выбор варианта) + `docs/<комната>.html`; вариант хранится в `?v=` и localStorage, фото копируются из `img/`.
+- `python3 tools/build.py` → `docs/index.html` (визуализации), `docs/planirovki.html`, `docs/podbor.html` (общая, выбор варианта) + `docs/<комната>.html`; вариант хранится в `?v=` и localStorage, фото копируются из `img/`.
 - Товары — Лемана ПРО Ижевск (izhevsk.lemanapro.ru), цены на 01.11.2026. Позиции без фото (`photo: null`) — ссылки на поиск по артикулу, их стоит проверить.
 - `plans/canvas/*.dc.html` — исходники листов планировок; координаты плана: px = мм/10 + смещение (20, 140), контейнер 810×790 масштаб 1.15.
 

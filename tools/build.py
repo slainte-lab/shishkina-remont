@@ -1,7 +1,7 @@
 """Собирает сайт подбора мебели из data/mebel.json.
 
-Результат в docs/: index.html (общая страница с выбором варианта «Белый» / «Шалфей»)
-и по странице на каждую комнату. Вариант выбирается один раз и переносится между
+Результат в docs/: index.html (визуализации), planirovki.html, podbor.html (общая страница
+подбора) и по странице на каждую комнату. Вариант выбирается один раз и переносится между
 страницами (параметр ?v= и localStorage). Запуск: python3 tools/build.py
 """
 import html
@@ -173,16 +173,15 @@ def shots(keys, cols=2):
 
 
 def nav(current):
-    cur = ' aria-current="page"' if current == "index" else ""
-    links = [f'<a href="index.html" data-keep="index.html"{cur}>Общая</a>']
-    for r in DATA["rooms"]:
-        cur = ' aria-current="page"' if r["id"] == current else ""
-        links.append(f'<a href="{r["id"]}.html" data-keep="{r["id"]}.html"{cur}>{r["name"]}</a>')
-    cur = ' aria-current="page"' if current == "planirovki" else ""
-    links.append(f'<a href="planirovki.html" data-keep="planirovki.html"{cur}>Планировки</a>')
-    cur = ' aria-current="page"' if current == "vizualizacii" else ""
-    links.append(f'<a href="vizualizacii.html" data-keep="vizualizacii.html"{cur}>Визуализации</a>')
-    return f'<nav class="nav" aria-label="Комнаты">{"".join(links)}</nav>'
+    """Порядок вкладок: визуализации (главная), планировки, общая страница подбора, комнаты."""
+    def tab(file, name, key):
+        cur = ' aria-current="page"' if current == key else ""
+        return f'<a href="{file}" data-keep="{file}"{cur}>{name}</a>'
+    links = [tab("index.html", "Визуализации", "vizualizacii"),
+             tab("planirovki.html", "Планировки", "planirovki"),
+             tab("podbor.html", "Общая", "podbor")]
+    links += [tab(f'{r["id"]}.html', r["name"], r["id"]) for r in DATA["rooms"]]
+    return f'<nav class="nav" aria-label="Страницы">{"".join(links)}</nav>'
 
 
 def page(title, current, body):
@@ -205,9 +204,9 @@ def room_page(idx, room):
     prev = rooms[idx - 1] if idx > 0 else None
     nxt = rooms[idx + 1] if idx < len(rooms) - 1 else None
     pager = (f'<a href="{prev["id"]}.html" data-keep="{prev["id"]}.html">← {prev["name"]}</a>' if prev
-             else '<a href="index.html" data-keep="index.html">← Общая</a>')
+             else '<a href="podbor.html" data-keep="podbor.html">← Общая</a>')
     pager += (f'<a href="{nxt["id"]}.html" data-keep="{nxt["id"]}.html">{nxt["name"]} →</a>' if nxt
-              else '<a href="index.html" data-keep="index.html">Общая →</a>')
+              else '<a href="podbor.html" data-keep="podbor.html">Общая →</a>')
     total = per_variant(lambda v: f'<b>{rub(room_sum(room, v))}</b> '
                                   f'<span>{len(items_for(room, v))} позиций</span>')
     eyebrow = per_variant(lambda v: f"вариант «{TITLE[v]}»")
@@ -239,7 +238,7 @@ def index_page():
             f'<div class="total"><b>{per_variant(lambda v: rub(totals[v]))}</b>'
             f'<span>Все комнаты, без матраса, ТВ, монтажа кухни, столешницы и блока питания подсветки.</span></div>'
             f'<section><h2>Комнаты</h2><div class="rooms">{rows}</div></section>')
-    return page("Мебель · Шишкина", "index", body)
+    return page("Мебель · Шишкина", "podbor", body)
 
 
 def plans_page():
@@ -258,7 +257,8 @@ def plans_page():
 def shots_page():
     body = ('<header><div class="eyebrow">Шишкина · Финал 2</div><h1>Визуализации</h1>'
             '<p class="lead">Картинки сделаны нейросетью по плану и подбору мебели. '
-            'Пропорции приблизительные, цвета и размеры смотрите в планах и подборе.</p></header>'
+            'Пропорции приблизительные, цвета и размеры смотрите в планах и подборе. '
+            'Вариант «Белый» или «Шалфей» переключается сверху.</p></header>'
             f'<section><h2>Кухня-гостиная</h2>{shots(["kg1", "kg2"])}</section>'
             f'<section><h2>Спальня</h2>{shots(["sp1", "sp2"])}</section>'
             f'<section><h2>Прихожая</h2>{shots(["pr"], 1)}</section>')
@@ -273,9 +273,9 @@ def main():
     for n, r in enumerate(DATA["rooms"]):
         (OUT / f'{r["id"]}.html').write_text(room_page(n, r), encoding="utf-8")
         used |= {i["main"]["photo"] for i in r["items"] if i["main"]["photo"]}
-    (OUT / "index.html").write_text(index_page(), encoding="utf-8")
+    (OUT / "podbor.html").write_text(index_page(), encoding="utf-8")
     (OUT / "planirovki.html").write_text(plans_page(), encoding="utf-8")
-    (OUT / "vizualizacii.html").write_text(shots_page(), encoding="utf-8")
+    (OUT / "index.html").write_text(shots_page(), encoding="utf-8")
     (OUT / "render").mkdir()
     for f in {f for lst in SHOTS.values() for f, _, _ in lst}:
         shutil.copy(ROOT / "vizualizacii" / "render" / f, OUT / "render" / f)
