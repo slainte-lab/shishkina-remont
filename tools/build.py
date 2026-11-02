@@ -18,6 +18,16 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">')
 VARIANTS = ("belyj", "shalfej")
 TITLE = {"belyj": "Белый", "shalfej": "Шалфей"}
+# (файл, подпись, вариант: all | belyj | shalfej)
+PLANS = [
+    ("01", "Финал 2 — выбранная планировка", "all"),
+    ("02", "План", "belyj"), ("03", "Решения", "belyj"),
+    ("04", "План", "shalfej"), ("05", "Решения", "shalfej"),
+    ("06", "Палитра «Шалфей и олива»", "all"),
+    ("07", "Декор, свет и текстиль", "all"),
+    ("08", "План с размерами", "all"),
+    ("09", "Что замерить", "all"),
+]
 SWATCH = {"belyj": "#F4F3EF", "shalfej": "#8E9C8F"}
 
 EXTRA_CSS = """
@@ -52,6 +62,11 @@ html[data-v="belyj"] [data-only="shalfej"],html[data-v="shalfej"] [data-only="be
 .rs{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 .note{display:block;font-size:12px;color:var(--terra);margin-top:2px}
 .photo.noimg{display:flex;align-items:center;justify-content:center;background:var(--chip);color:var(--muted);font-size:12.5px;text-align:center}
+.plans{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.plan{margin:0;display:flex;flex-direction:column;gap:8px}
+.plan img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
+.plan figcaption{font-size:13.5px;color:var(--muted)}
+.total a{color:var(--accent);font-weight:600}
 .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pager a{text-decoration:none;color:var(--fg);padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
 .pager a:hover{border-color:var(--accent)}
@@ -133,6 +148,8 @@ def nav(current):
     for r in DATA["rooms"]:
         cur = ' aria-current="page"' if r["id"] == current else ""
         links.append(f'<a href="{r["id"]}.html" data-keep="{r["id"]}.html"{cur}>{r["name"]}</a>')
+    cur = ' aria-current="page"' if current == "planirovki" else ""
+    links.append(f'<a href="planirovki.html" data-keep="planirovki.html"{cur}>Планировки</a>')
     return f'<nav class="nav" aria-label="Комнаты">{"".join(links)}</nav>'
 
 
@@ -192,6 +209,19 @@ def index_page():
     return page("Мебель · Шишкина", "index", body)
 
 
+def plans_page():
+    figs = "".join(
+        f'<figure class="plan"{"" if v == "all" else f" data-only=\"{v}\""}>'
+        f'<a href="planirovki/{f}.png" target="_blank" rel="noopener"><img src="planirovki/{f}.png" alt="{c}" loading="lazy"></a>'
+        f'<figcaption>{c}{"" if v == "all" else f" · {TITLE[v]}"}</figcaption></figure>' for f, c, v in PLANS)
+    body = ('<header><div class="eyebrow">Шишкина · Финал 2</div><h1>Планировки</h1>'
+            '<p class="lead">Листы выбранной планировки. Планы и решения показаны для выбранного варианта; '
+            'клик по листу открывает его целиком.</p>'
+            '<div class="total"><a href="planirovki/planirovki.pdf" target="_blank" rel="noopener">Все листы одним PDF</a></div></header>'
+            f'<section><div class="plans">{figs}</div></section>')
+    return page("Планировки · Шишкина", "planirovki", body)
+
+
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -201,6 +231,8 @@ def main():
         (OUT / f'{r["id"]}.html').write_text(room_page(n, r), encoding="utf-8")
         used |= {i["main"]["photo"] for i in r["items"] if i["main"]["photo"]}
     (OUT / "index.html").write_text(index_page(), encoding="utf-8")
+    (OUT / "planirovki.html").write_text(plans_page(), encoding="utf-8")
+    shutil.copytree(ROOT / "planirovki", OUT / "planirovki", ignore=shutil.ignore_patterns("README.md"))
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
     for p in used:
         shutil.copy(ROOT / p, OUT / p)
