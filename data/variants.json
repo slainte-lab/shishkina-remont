@@ -264,7 +264,38 @@
     "price": 3000,
     "url": "https://www.avito.ru/izhevsk/bytovaya_tehnika/holodilnik_minsk_atlant_bu_8421966248",
     "note": "Ижевск, б/у, ширину проверить"
+   },
+   {
+    "shop": "М.Видео",
+    "name": "Pozis RK-102, белый",
+    "price": 33128,
+    "url": "https://www.mvideo.ru/products/4197126",
+    "note": "ширина 57 см по каталогу, впритык: сверить по карточке"
+   },
+   {
+    "shop": "М.Видео",
+    "name": "Indesit ITS 4180 W, белый",
+    "price": 31999,
+    "url": "https://www.mvideo.ru/products/20070645",
+    "note": "ширина 60: при гарнитуре 240 не влезает"
+   },
+   {
+    "shop": "М.Видео",
+    "name": "ATLANT ХМ-4623-101",
+    "price": 35999,
+    "url": "https://www.mvideo.ru/products/401058368",
+    "note": "ширина 60: при гарнитуре 240 не влезает"
    }
+  ],
+  "more": [
+   [
+    "М.Видео",
+    "https://www.mvideo.ru/search?q=%D1%85%D0%BE%D0%BB%D0%BE%D0%B4%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%20%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9%20%D1%83%D0%B7%D0%BA%D0%B8%D0%B9%2057%20%D1%81%D0%BC"
+   ],
+   [
+    "Мегамаркет",
+    "https://megamarket.ru/catalog/?q=%D1%85%D0%BE%D0%BB%D0%BE%D0%B4%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%20%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9%20%D1%83%D0%B7%D0%BA%D0%B8%D0%B9%2057%20%D1%81%D0%BC"
+   ]
   ]
  },
  "kuhnya|Варочная панель": {
@@ -304,7 +335,45 @@
     "price": 8900,
     "url": "https://www.avito.ru/izhevsk/bytovaya_tehnika/varochnaya_panel_7615447815",
     "note": "Ижевск, размер уточнить"
+   },
+   {
+    "shop": "М.Видео",
+    "name": "Evelux HEV 640 B, электрическая, 4 конфорки, 60 см",
+    "price": 9120,
+    "url": "https://www.mvideo.ru/products/400482591",
+    "note": ""
+   },
+   {
+    "shop": "М.Видео",
+    "name": "Evelux HEI 640 B, индукционная, 60 см",
+    "price": 12317,
+    "url": "https://www.mvideo.ru/products/400482599",
+    "note": "индукция: нужна подходящая посуда"
+   },
+   {
+    "shop": "М.Видео",
+    "name": "Zigmund & Shtain, электрическая, 4 конфорки",
+    "price": 13566,
+    "url": "https://www.mvideo.ru/products/400537552",
+    "note": "размер и цвет проверить"
+   },
+   {
+    "shop": "М.Видео",
+    "name": "Evelux EV 6040, электрическая, 60 см",
+    "price": 14991,
+    "url": "https://www.mvideo.ru/products/400482602",
+    "note": ""
    }
+  ],
+  "more": [
+   [
+    "М.Видео",
+    "https://www.mvideo.ru/search?q=%D0%B2%D0%B0%D1%80%D0%BE%D1%87%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%2060"
+   ],
+   [
+    "Мегамаркет",
+    "https://megamarket.ru/catalog/?q=%D0%B2%D0%B0%D1%80%D0%BE%D1%87%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%2060"
+   ]
   ]
  },
  "kuhnya|Духовой шкаф": {
@@ -351,7 +420,24 @@
     "price": 25999,
     "url": "https://hoff.ru/catalog/bytovaya_tehnika/tekhnika_dlya_kuhni/vstraivaemaya_tekhnika/duhovie_shkafi/elektricheskiy_dukhovoy_shkaf_edm_id9996199/",
     "note": "дороже"
+   },
+   {
+    "shop": "М.Видео",
+    "name": "Evelux EO 612 EB, встраиваемый электрический, 60 см",
+    "price": 14732,
+    "url": "https://www.mvideo.ru/products/400483010",
+    "note": ""
    }
+  ],
+  "more": [
+   [
+    "М.Видео",
+    "https://www.mvideo.ru/search?q=%D0%B4%D1%83%D1%85%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%88%D0%BA%D0%B0%D1%84%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B2%D1%81%D1%82%D1%80%D0%B0%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%D1%8B%D0%B9"
+   ],
+   [
+    "Мегамаркет",
+    "https://megamarket.ru/catalog/?q=%D0%B4%D1%83%D1%85%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%88%D0%BA%D0%B0%D1%84%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B2%D1%81%D1%82%D1%80%D0%B0%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%D1%8B%D0%B9"
+   ]
   ]
  },
  "kuhnya|Мойка": {

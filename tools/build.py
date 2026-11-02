@@ -211,12 +211,13 @@ def opt_link(o):
             f'<span class="price">{rub(o["price"])}</span></a>')
 
 
-def search_links(q):
+def search_links(q, more=()):
     enc = quote(q)
     urls = [("Ozon", f"https://www.ozon.ru/search/?text={enc}"),
             ("WB", f"https://www.wildberries.ru/catalog/0/search.aspx?search={enc}"),
             ("Hoff", f"https://hoff.ru/search/?search={enc}"),
             ("Avito", f"https://www.avito.ru/izhevsk?q={enc}")]
+    urls += [tuple(m) for m in more]
     return "".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n, u in urls)
 
 
@@ -228,7 +229,7 @@ def options_block(room_id, role):
     lo = rub(opts[0]["price"])
     return (f'<details class="opts"><summary>Где ещё искать · {len(opts)} вариантов, от {lo}</summary>'
             f'<div class="links">{"".join(opt_link(o) for o in opts)}</div>'
-            f'<div class="srch"><span>Поиск самому:</span>{search_links(d["q"])}</div></details>')
+            f'<div class="srch"><span>Поиск самому:</span>{search_links(d["q"], d.get("more", ()))}</div></details>')
 
 
 def photo(p):
